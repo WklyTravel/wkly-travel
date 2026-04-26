@@ -136,7 +136,15 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
   background:var(--cream2);
   padding:72px 80px;
   border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
+.ei-book-link {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:10px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--stone); text-decoration:none; font-family:'Inter',sans-serif;
+  transition:color .2s; margin-top:24px;
+}
+.ei-book-link:hover { color:var(--ink); }
 .ei-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:center; }
 .ei-ep-badge {
   display:inline-flex; align-items:center; gap:8px;
@@ -189,9 +197,14 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .bk-cta-title em { font-style:italic; color:var(--gold); }
 .bk-cta-sub { font-size:13px; color:var(--dim); line-height:1.65; max-width:440px; }
 .bk-cta-right { flex-shrink:0; text-align:center; }
-.bk-cta-price { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:var(--ink); letter-spacing:-2px; line-height:1; margin-bottom:4px; }
-.bk-cta-price span { font-size:16px; color:var(--stone); letter-spacing:0; }
-.bk-cta-per { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--stone); margin-bottom:20px; }
+.bk-countdown { display:flex; gap:8px; margin-bottom:10px; justify-content:center; }
+.bkcd-item { text-align:center; background:rgba(184,146,74,.07); border:1px solid rgba(184,146,74,.2); border-radius:4px; padding:8px 10px; min-width:52px; }
+.bkcd-n { display:block; font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; color:var(--ink); line-height:1; letter-spacing:-1px; }
+.bkcd-l { font-size:7.5px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--stone); }
+.bk-closes { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--stone); margin-bottom:16px; }
+.bk-cta-price { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--ink); letter-spacing:-1.5px; line-height:1; margin-bottom:2px; }
+.bk-cta-price span { font-size:14px; color:var(--stone); letter-spacing:0; }
+.bk-cta-per { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--stone); margin-bottom:16px; }
 .btn-bk-cta {
   display:inline-flex; align-items:center; gap:10px;
   background:var(--gold); color:var(--ink);
@@ -229,46 +242,6 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .day-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
 .day-tag { font-size:8px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,146,74,.3); padding:3px 8px; border-radius:2px; }
 
-/* ─── BOOK ────────────────────────────────────────── */
-.book-sec {
-  background:var(--ink); padding:64px 80px;
-  position:relative; overflow:hidden;
-}
-.book-sec::before {
-  content:''; position:absolute; top:-200px; right:-200px;
-  width:600px; height:600px;
-  background:radial-gradient(circle, rgba(184,146,74,.08) 0%, transparent 70%);
-  pointer-events:none;
-}
-.book-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
-.book-label { font-size:8px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:flex; align-items:center; gap:10px; }
-.book-label::after { content:''; width:24px; height:1px; background:var(--gold); }
-.book-title { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3vw,44px); font-weight:300; color:var(--cream); line-height:1.05; letter-spacing:-1.5px; margin-bottom:14px; }
-.book-title em { font-style:italic; color:var(--gold2); }
-.book-sub { font-size:12px; line-height:1.75; color:rgba(245,240,232,.45); margin-bottom:24px; }
-.book-departure { display:flex; align-items:center; gap:12px; padding:14px 0; border-top:1px solid rgba(245,240,232,.08); border-bottom:1px solid rgba(245,240,232,.08); margin-bottom:24px; }
-.bd-label { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,240,232,.35); flex-shrink:0; }
-.bd-value { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:400; color:var(--cream); }
-.order-card { background:rgba(245,240,232,.05); border:1px solid rgba(245,240,232,.1); padding:28px; border-radius:4px; }
-.oc-title { font-size:8px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
-.guest-selector { margin-bottom:22px; }
-.gs-label { font-size:10px; letter-spacing:1px; color:rgba(245,240,232,.5); margin-bottom:10px; }
-.gs-controls { display:flex; align-items:center; border:1px solid rgba(245,240,232,.15); border-radius:2px; overflow:hidden; width:fit-content; }
-.gs-btn { width:36px; height:36px; background:rgba(245,240,232,.07); border:none; color:var(--cream); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; font-family:'Inter',sans-serif; }
-.gs-btn:hover { background:rgba(184,146,74,.2); }
-.gs-count { min-width:48px; text-align:center; font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--cream); border:none; background:transparent; border-left:1px solid rgba(245,240,232,.1); border-right:1px solid rgba(245,240,232,.1); padding:6px 12px; }
-.price-breakdown { border-top:1px solid rgba(245,240,232,.08); padding-top:16px; margin-bottom:18px; }
-.pb-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:7px; font-size:11px; }
-.pb-k { color:rgba(245,240,232,.4); }
-.pb-v { color:rgba(245,240,232,.7); font-weight:500; }
-.pb-total { display:flex; justify-content:space-between; align-items:baseline; padding-top:12px; border-top:1px solid rgba(245,240,232,.08); margin-bottom:18px; }
-.pbt-label { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,240,232,.35); }
-.pbt-amount { font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:400; color:var(--gold); letter-spacing:-1.5px; line-height:1; }
-.pbt-currency { font-size:12px; color:rgba(245,240,232,.35); margin-left:4px; }
-.btn-book { display:block; width:100%; text-align:center; background:var(--gold); color:var(--ink); font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:20px; text-decoration:none; border:none; cursor:pointer; font-family:'Inter',sans-serif; border-radius:2px; transition:background .25s, transform .25s; }
-.btn-book:hover { background:var(--gold2); transform:translateY(-2px); }
-.secure-note { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; font-size:11px; color:rgba(245,240,232,.3); }
-.spots-bar { display:flex; align-items:center; gap:10px; margin-top:20px; padding-top:20px; border-top:1px solid rgba(245,240,232,.08); font-size:12px; color:rgba(245,240,232,.4); }
 
 /* ─── PAST EPISODES ───────────────────────────────── */
 .past-sec { background:var(--cream); padding:56px 80px; border-top:1px solid var(--border); }
@@ -317,8 +290,8 @@ footer a { color:var(--gold); text-decoration:none; }
   nav.stuck { padding:14px 32px; }
   .hero { padding:0 24px; }
   .hero-inner { grid-template-columns:1fr; padding:100px 0 40px; gap:36px; }
-  .episode-intro .ei-inner, .book-inner { grid-template-columns:1fr; gap:40px; }
-  .episode-intro, .past-sec, .sub-sec, .book-sec, .booking-cta { padding:40px 24px; }
+  .episode-intro .ei-inner { grid-template-columns:1fr; gap:40px; }
+  .episode-intro, .past-sec, .sub-sec, .booking-cta { padding:40px 24px; }
   .itin-header { padding:40px 24px 24px; }
   .day-row, .day-row.flip { grid-template-columns:1fr; direction:ltr; }
   .day-photo { min-height:220px; }
@@ -381,6 +354,7 @@ footer a { color:var(--gold); text-decoration:none; }
       <div class="ei-ep-badge">Ep 01 · 11–18 May 2026</div>
       <h2 class="ei-title">Reef &amp; <em>Red Sands</em></h2>
       <p class="ei-desc">Fly into Cairns, gateway to the largest living structure on Earth. Spend three days exploring the Great Barrier Reef — by boat, by sea, by wonder. Then board a flight inland to the Red Centre and your first sight of Uluru, rising 348 metres from the desert floor, glowing ochre as the sun falls. Two of the world's great natural wonders. Seven days. Nothing left to arrange.</p>
+      <a href="#booking-cta" class="ei-book-link">Proceed to booking form →</a>
     </div>
     <div class="ei-facts">
       <div class="ef"><span class="ef-k">Departure</span><span class="ef-v">11 May 2026 · East Coast Australia</span></div>
@@ -501,69 +475,28 @@ footer a { color:var(--gold); text-decoration:none; }
 </section>
 
 <!-- ══ BOOKING CTA ════════════════════════════════════ -->
-<section class="booking-cta">
+<section class="booking-cta" id="booking-cta">
   <div class="bk-cta-inner reveal">
     <div class="bk-cta-left">
       <div class="bk-cta-badge">Ready to book</div>
-      <h2 class="bk-cta-title">Episode 01 · <em>12 spots.</em> Departure 11 May 2026.</h2>
+      <h2 class="bk-cta-title">Episode 01 · Departure <em>11 May 2026</em></h2>
       <p class="bk-cta-sub">Flights, hotels, transfers, tours — everything arranged. One price, no extras. Booking closes when the last spot goes.</p>
     </div>
     <div class="bk-cta-right">
+      <div class="bk-countdown">
+        <div class="bkcd-item"><span class="bkcd-n" id="bk-days">--</span><span class="bkcd-l">Days</span></div>
+        <div class="bkcd-item"><span class="bkcd-n" id="bk-hours">--</span><span class="bkcd-l">Hrs</span></div>
+        <div class="bkcd-item"><span class="bkcd-n" id="bk-mins">--</span><span class="bkcd-l">Min</span></div>
+        <div class="bkcd-item"><span class="bkcd-n" id="bk-secs">--</span><span class="bkcd-l">Sec</span></div>
+      </div>
+      <div class="bk-closes">Until departure</div>
       <div class="bk-cta-price">$2,999 <span>AUD</span></div>
       <div class="bk-cta-per">per person · all inclusive</div>
-      <a href="#book" class="btn-bk-cta">Proceed to booking form →</a>
+      <a href="book.html" class="btn-bk-cta">Proceed to booking form →</a>
     </div>
   </div>
 </section>
 
-<!-- ══ BOOK ═══════════════════════════════════════════ -->
-<section class="book-sec" id="book">
-  <div class="book-inner">
-
-    <div class="book-left reveal">
-      <div class="book-label">Secure your spot</div>
-      <h2 class="book-title">Episode 01.<br><em>12 spots.</em><br>One price.</h2>
-      <p class="book-sub">No waitlist. No extensions. Booking closes when the week ends or when the last spot goes — whichever comes first.</p>
-      <div class="book-departure">
-        <span class="bd-label">Departure</span>
-        <span class="bd-value">11 May 2026 · East Coast Australia</span>
-      </div>
-      <div class="cd-spots"><span class="dot"></span>8 of 12 spots remaining</div>
-    </div>
-
-    <div class="book-right reveal">
-      <div class="order-card">
-        <div class="oc-title">Your booking</div>
-        <div class="guest-selector">
-          <div class="gs-label">Number of guests</div>
-          <div class="gs-controls">
-            <button class="gs-btn" onclick="changeGuests(-1)">−</button>
-            <span class="gs-count" id="guest-count">1</span>
-            <button class="gs-btn" onclick="changeGuests(1)">+</button>
-          </div>
-        </div>
-        <div class="price-breakdown">
-          <div class="pb-row"><span class="pb-k">Price per person</span><span class="pb-v">$2,999 AUD</span></div>
-          <div class="pb-row"><span class="pb-k">Guests</span><span class="pb-v" id="pb-guests">1 guest</span></div>
-          <div class="pb-row"><span class="pb-k">Flights included</span><span class="pb-v" style="color:var(--gold)">✓ Yes</span></div>
-          <div class="pb-row"><span class="pb-k">All accommodation</span><span class="pb-v" style="color:var(--gold)">✓ Yes</span></div>
-          <div class="pb-row"><span class="pb-k">All experiences</span><span class="pb-v" style="color:var(--gold)">✓ Yes</span></div>
-        </div>
-        <div class="pb-total">
-          <span class="pbt-label">Total</span>
-          <div>
-            <span class="pbt-amount" id="total-price">$2,999</span>
-            <span class="pbt-currency">AUD</span>
-          </div>
-        </div>
-        <a href="book.html" class="btn-book" id="bookBtn">Book Episode 01 →</a>
-        <div class="secure-note">🔒 Secure checkout via Stripe</div>
-        <div class="spots-bar"><span class="dot"></span><span>8 spots remaining — closes Sunday midnight</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- ══ PAST EPISODES ══════════════════════════════════ -->
 <section class="past-sec" id="past">
@@ -638,17 +571,29 @@ window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scr
   }, 4500);
 })();
 
-/* ── GUEST SELECTOR ── */
-const BASE_PRICE = 2999;
-let guests = 1;
-function changeGuests(delta) {
-  guests = Math.max(1, Math.min(8, guests + delta));
-  document.getElementById('guest-count').textContent = guests;
-  document.getElementById('pb-guests').textContent = guests + (guests === 1 ? ' guest' : ' guests');
-  const total = (guests * BASE_PRICE).toLocaleString('en-AU', { style:'currency', currency:'AUD', minimumFractionDigits:0 });
-  document.getElementById('total-price').textContent = total;
-  document.getElementById('bookBtn').href = 'book.html?guests=' + guests;
-}
+/* ── DEPARTURE COUNTDOWN ── */
+(function() {
+  const target = new Date('2026-05-11T00:00:00+10:00');
+  const pad = n => String(n).padStart(2,'0');
+  function tick() {
+    const diff = target - new Date();
+    if (diff <= 0) {
+      ['bk-days','bk-hours','bk-mins','bk-secs'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = '00'; });
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const set = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = val; };
+    set('bk-days', d);
+    set('bk-hours', pad(h));
+    set('bk-mins', pad(m));
+    set('bk-secs', pad(s));
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
 
 /* ── SCROLL REVEAL ── */
 const observer = new IntersectionObserver(entries => {
