@@ -62,14 +62,14 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 
 /* ─── HERO ────────────────────────────────────────── */
 .hero {
-  min-height:100vh;
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding-top:80px;
+  padding-top:72px;
+  min-height:auto;
 }
 .hero-left {
   display:flex; flex-direction:column; justify-content:center;
-  padding:80px 80px 80px 80px;
+  padding:60px 64px 60px 80px;
 }
 .hero-eyebrow {
   display:inline-flex; align-items:center; gap:10px;
@@ -103,65 +103,82 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 }
 .btn-primary:hover { background:var(--gold); transform:translateY(-2px); box-shadow:0 16px 48px rgba(184,146,74,.2); }
 
-/* ─── HERO RIGHT — COLLAGE ────────────────────────── */
+/* ─── HERO RIGHT — CASCADING PHOTOS ──────────────── */
 .hero-right {
   position:relative;
-  display:flex; flex-direction:column;
-}
-.hero-collage {
-  flex:1;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr 1fr;
-  gap:3px;
-  background:var(--ink);
-  min-height:500px;
-}
-.collage-cell {
-  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--cream2);
+  padding:52px 48px;
   overflow:hidden;
 }
-.collage-cell img {
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 1.8s ease;
-  transform:scale(1.06);
-}
-.collage-cell img.active {
-  opacity:1;
-  animation:kb 10s ease-in-out forwards;
-}
-@keyframes kb {
-  from { transform:scale(1.06); }
-  to   { transform:scale(1.00); }
-}
-/* thin gold line accent on first cell */
-.collage-cell:first-child::after {
+/* subtle warm radial glow behind photos */
+.hero-right::before {
   content:'';
   position:absolute;
-  bottom:0; left:0; right:0;
-  height:2px;
-  background:var(--gold);
-  opacity:.6;
+  inset:0;
+  background:radial-gradient(ellipse 70% 70% at 55% 50%, rgba(184,146,74,.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-photos {
+  position:relative;
+  width:100%;
+  height:480px;
+}
+.photo-card {
+  position:absolute;
+  overflow:hidden;
+  border-radius:6px;
+  box-shadow:0 28px 72px rgba(28,22,18,.18), 0 4px 12px rgba(28,22,18,.1);
+}
+.photo-card img {
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.92) brightness(.97);
+  transition:transform 8s ease;
+}
+/* Card 1 — back left, portrait */
+.photo-card:nth-child(1) {
+  width:44%; aspect-ratio:3/4;
+  top:28px; left:0;
+  transform:rotate(-3.5deg);
+  z-index:1;
+}
+/* Card 2 — main centre, portrait, tallest */
+.photo-card:nth-child(2) {
+  width:48%; aspect-ratio:2/3;
+  top:12px; left:50%; transform:translateX(-50%) rotate(1deg);
+  z-index:3;
+  box-shadow:0 36px 90px rgba(28,22,18,.22), 0 6px 16px rgba(28,22,18,.1);
+}
+/* Card 3 — front right, landscape */
+.photo-card:nth-child(3) {
+  width:40%; aspect-ratio:4/3;
+  bottom:10px; right:0;
+  transform:rotate(3deg);
   z-index:2;
 }
-
-/* Countdown */
-.countdown-bar {
-  background:var(--ink); padding:20px 32px;
-  display:flex; align-items:center; justify-content:space-between; gap:20px;
+/* thin gold border on main card */
+.photo-card:nth-child(2)::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  border:1.5px solid rgba(184,146,74,.3);
+  border-radius:6px;
+  pointer-events:none;
+  z-index:4;
 }
-.cd-label { font-size:9px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:rgba(245,240,232,.4); white-space:nowrap; }
-.cd-timer { display:flex; align-items:center; gap:4px; }
-.cd-unit { display:flex; align-items:baseline; gap:2px; }
-.cd-n { font-family:'Inter',sans-serif; font-size:22px; font-weight:700; color:var(--cream); min-width:28px; text-align:center; letter-spacing:-1px; }
-.cd-l { font-size:8px; font-weight:600; letter-spacing:1px; color:rgba(245,240,232,.35); text-transform:uppercase; }
-.cd-sep { font-size:18px; color:rgba(245,240,232,.2); margin:0 4px; padding-bottom:2px; }
-.cd-spots { display:flex; align-items:center; gap:8px; font-size:11px; font-weight:600; color:var(--gold); white-space:nowrap; }
+/* hover lifts main card slightly */
+.hero-photos:hover .photo-card:nth-child(2) {
+  transform:translateX(-50%) rotate(1deg) translateY(-4px);
+  transition:transform .4s ease;
+}
+.hero-photos:hover .photo-card img { transform:scale(1.03); }
+
 .dot { width:6px; height:6px; background:var(--gold); border-radius:50%; animation:pulse 1.8s ease infinite; flex-shrink:0; }
+.cd-spots { display:flex; align-items:center; gap:8px; font-size:11px; font-weight:600; color:var(--gold); white-space:nowrap; }
 
 /* ─── EPISODE INTRO ───────────────────────────────── */
 .episode-intro {
@@ -362,8 +379,8 @@ footer a { color:var(--gold); text-decoration:none; }
   nav.stuck { padding:14px 32px; }
   .hero { grid-template-columns:1fr; }
   .hero-left { padding:48px 32px; }
-  .hero-right { min-height:400px; }
-  .hero-collage { min-height:400px; }
+  .hero-right { padding:40px 24px; min-height:420px; }
+  .hero-photos { height:380px; }
   .episode-intro .ei-inner,
   .inc-header,
   .book-inner { grid-template-columns:1fr; gap:40px; }
@@ -406,69 +423,26 @@ footer a { color:var(--gold); text-decoration:none; }
     </div>
   </div>
 
-  <!-- Right: collage + countdown -->
+  <!-- Right: cascading photos -->
   <div class="hero-right">
+    <div class="hero-photos">
 
-    <div class="hero-collage" id="collage">
-
-      <!-- Cell 1 -->
-      <div class="collage-cell">
-        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=85" alt="" />
+      <!-- Card 1 — back left: scenic landscape -->
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900&q=88" alt="Amalfi Coast" />
       </div>
 
-      <!-- Cell 2 -->
-      <div class="collage-cell">
-        <img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85" alt="" />
+      <!-- Card 2 — main centre: people in travel moment -->
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=88" alt="Luxury travel" />
       </div>
 
-      <!-- Cell 3 -->
-      <div class="collage-cell">
-        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1545063914-a1a6ec821c88?w=900&q=85" alt="" />
-      </div>
-
-      <!-- Cell 4 -->
-      <div class="collage-cell">
-        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=85" alt="" />
-      </div>
-
-      <!-- Cell 5 -->
-      <div class="collage-cell">
-        <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=900&q=85" alt="" />
-      </div>
-
-      <!-- Cell 6 -->
-      <div class="collage-cell">
-        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85" alt="" />
-        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=85" alt="" />
+      <!-- Card 3 — front right: landscape accent -->
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=88" alt="Mountain vista" />
       </div>
 
     </div>
-
-    <div class="countdown-bar">
-      <span class="cd-label">Booking closes in</span>
-      <div class="cd-timer">
-        <div class="cd-unit"><span class="cd-n" id="cd-d">00</span><span class="cd-l">d</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-n" id="cd-h">00</span><span class="cd-l">h</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-n" id="cd-m">00</span><span class="cd-l">m</span></div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-n" id="cd-s">00</span><span class="cd-l">s</span></div>
-      </div>
-      <div class="cd-spots"><span class="dot"></span>8 spots remaining</div>
-    </div>
-
   </div>
 
 </section>
@@ -790,28 +764,6 @@ function updateCountdown() {
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
-
-/* ── COLLAGE ── */
-(function initCollage() {
-  const cells = document.querySelectorAll('.collage-cell');
-  cells.forEach((cell, i) => {
-    const imgs = cell.querySelectorAll('img');
-    let current = 0;
-
-    // Activate first image immediately
-    imgs[0].classList.add('active');
-
-    // Each cell cycles at a slightly different rate, staggered starts
-    const interval = 4000 + i * 600;
-    setTimeout(() => {
-      setInterval(() => {
-        imgs[current].classList.remove('active');
-        current = (current + 1) % imgs.length;
-        imgs[current].classList.add('active');
-      }, interval);
-    }, i * 900); // stagger the start so all 6 don't change at once
-  });
-})();
 
 /* ── GUEST SELECTOR ── */
 const BASE_PRICE = 2999;
