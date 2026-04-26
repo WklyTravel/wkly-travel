@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Episode 01 — WKLY.travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  const STRIPE_LINKS = {
+    1:'https://buy.stripe.com/REPLACE_1',
+    2:'https://buy.stripe.com/REPLACE_2',
+    3:'https://buy.stripe.com/REPLACE_3',
+    4:'https://buy.stripe.com/REPLACE_4',
+    5:'https://buy.stripe.com/REPLACE_5',
+    6:'https://buy.stripe.com/REPLACE_6',
+  };
+  const CRM_ENDPOINT = 'https://formspree.io/f/REPLACE_FORM_ID';
+  const BASE_PRICE = 2999;
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{--cream:#f5f0e8;--cream2:#ede8de;--ink:#1c1612;--gold:#b8924a;--gold2:#d4aa68;--stone:#8a8278;--dim:#6a6258;--border:rgba(28,22,18,.1)}
+body{font-family:'Inter',sans-serif;font-weight:300;background:var(--cream);color:var(--ink)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(245,240,232,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.nav-logo{text-decoration:none}
+.nav-logo-main{font-size:14px;font-weight:700;letter-spacing:5px;color:var(--ink);text-transform:uppercase}
+.nav-logo-main span{color:var(--gold);font-weight:300}
+.back{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .2s}
+.back:hover{color:var(--ink)}
+.sumbar{background:var(--ink);padding:16px 64px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.sb-ep{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.sb-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#fff}
+.sb-meta{font-size:11px;color:rgba(245,240,232,.4);margin-top:2px}
+.sb-tag{font-size:10px;color:rgba(245,240,232,.45);display:flex;align-items:center;gap:6px}
+.sb-tag::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%}
+.sb-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.page{max-width:1160px;margin:0 auto;padding:64px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:start}
+.fc-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--ink);letter-spacing:-1px;margin-bottom:8px;line-height:1.1}
+.fc-title em{font-style:italic;color:var(--gold)}
+.fc-sub{font-size:13px;color:var(--dim);margin-bottom:44px;line-height:1.7}
+.form-sec{margin-bottom:36px}
+.form-sec-title{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.fg label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--stone)}
+.fg input,.fg select,.fg textarea{background:var(--cream2);border:1px solid var(--border);color:var(--ink);padding:13px 16px;font:300 13px/1 'Inter',sans-serif;outline:none;transition:border-color .2s;width:100%;border-radius:2px;appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg textarea{resize:vertical;min-height:80px;line-height:1.6}
+.fg-full{grid-column:1/-1}
+.policy-row{display:flex;align-items:flex-start;gap:12px;font-size:12px;color:var(--stone);line-height:1.7;margin-top:8px}
+.policy-row input[type=checkbox]{width:17px;height:17px;flex-shrink:0;margin-top:2px;accent-color:var(--gold)}
+.order-card{background:var(--cream2);border:1px solid var(--border);padding:36px;border-radius:4px;position:sticky;top:100px}
+.oc-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.oc-img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.85);margin-bottom:20px;border-radius:2px;display:block}
+.oc-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:4px}
+.oc-meta{font-size:11px;color:var(--stone);margin-bottom:24px;line-height:1.7}
+.gs-label{font-size:10px;letter-spacing:1px;color:var(--stone);margin-bottom:10px;font-weight:500}
+.gs-controls{display:flex;align-items:center;border:1px solid var(--border);border-radius:2px;overflow:hidden;width:fit-content;margin-bottom:24px}
+.gs-btn{width:40px;height:40px;background:var(--cream);border:none;color:var(--ink);font-size:18px;cursor:pointer;transition:background .2s;font-family:'Inter',sans-serif}
+.gs-btn:hover{background:rgba(184,146,74,.15)}
+.gs-count{min-width:56px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--ink);border:none;background:transparent;border-left:1px solid var(--border);border-right:1px solid var(--border);padding:7px 12px}
+.oc-lines{display:flex;flex-direction:column;gap:9px;padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:18px}
+.oc-line{display:flex;justify-content:space-between;font-size:12.5px}
+.oc-line .oc-k{color:var(--stone)}
+.oc-line .oc-v{color:var(--dim);font-weight:500}
+.oc-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px}
+.oct-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--stone)}
+.oct-amt{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--gold);letter-spacing:-1.5px;line-height:1}
+.btn-pay{display:block;width:100%;text-align:center;background:var(--ink);color:var(--cream);padding:18px;font:700 11px/1 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s;text-decoration:none;border-radius:2px;font-family:'Inter',sans-serif}
+.btn-pay:hover{background:var(--gold);transform:translateY(-1px);box-shadow:0 12px 40px rgba(184,146,74,.2)}
+.btn-pay:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.secure-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;font-size:11px;color:var(--stone)}
+@media(max-width:900px){nav,.sumbar{padding:16px 24px}.page{grid-template-columns:1fr;gap:48px;padding:40px 24px}.order-card{position:static}.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-main">WKLY<span>.</span>travel</div></a>
+  <a href="index.html" class="back">← Back to Episode</a>
+</nav>
+
+<div class="sumbar">
+  <div>
+    <div class="sb-ep">Episode 01</div>
+    <div class="sb-name">Reef &amp; Red Sands</div>
+    <div class="sb-meta">24 November 2025 · 7 days · Cairns &amp; Uluru</div>
+  </div>
+  <div class="sb-right">
+    <span class="sb-tag">All flights incl.</span>
+    <span class="sb-tag">7 nights accommodation</span>
+    <span class="sb-tag">Field of Light dinner</span>
+    <span class="sb-tag">Kuranda Railway</span>
+  </div>
+</div>
+
+<div class="page">
+  <div>
+    <h1 class="fc-title">Your <em>details</em></h1>
+    <p class="fc-sub">Fill in your details, review the order summary, then proceed to secure payment via Stripe. Takes under 2 minutes.</p>
+    <form id="bookForm">
+      <div class="form-sec">
+        <div class="form-sec-title">Lead Traveller</div>
+        <div class="form-row">
+          <div class="fg"><label>First Name *</label><input type="text" id="fname" required /></div>
+          <div class="fg"><label>Last Name *</label><input type="text" id="lname" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Email Address *</label><input type="email" id="email" required /></div>
+          <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="phone" required /></div>
+        </div>
+      </div>
+      <div class="form-sec">
+        <div class="form-sec-title">Booking Details</div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Departure City *</label>
+            <select id="hub" required>
+              <option value="">Select your city</option>
+              <option value="SYD">Sydney (SYD)</option>
+              <option value="MEL">Melbourne (MEL)</option>
+              <option value="BNE">Brisbane (BNE)</option>
+              <option value="PER">Perth (PER)</option>
+              <option value="ADL">Adelaide (ADL)</option>
+              <option value="OTHER">Other — we'll be in touch</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Number of Guests *</label>
+            <select id="guests-select" onchange="syncGuests(this.value)">
+              <option value="1">1 guest — $2,999</option>
+              <option value="2">2 guests — $5,998</option>
+              <option value="3">3 guests — $8,997</option>
+              <option value="4">4 guests — $11,996</option>
+              <option value="5">5 guests — $14,995</option>
+              <option value="6">6 guests — $17,994</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg fg-full">
+          <label>Special requests or dietary requirements <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:10px">(optional)</span></label>
+          <textarea id="notes" placeholder="Dietary needs, allergies, accessibility, celebrations..."></textarea>
+        </div>
+      </div>
+      <div class="form-sec">
+        <div class="form-sec-title">Acknowledgement</div>
+        <div class="policy-row">
+          <input type="checkbox" id="terms" required />
+          <label for="terms">I understand this booking is non-refundable within 30 days of departure, and that this episode is exactly as described — no substitutions or customisations. I agree to the <a href="#" style="color:var(--gold)">Terms &amp; Conditions</a>.</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <div class="order-card">
+      <div class="oc-label">Order Summary</div>
+      <img class="oc-img" src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=85" alt="Uluru" />
+      <div class="oc-name">Reef &amp; Red Sands</div>
+      <div class="oc-meta">Episode 01 · 24 Nov 2025 · 7 days<br>Cairns &amp; Uluru · All inclusive</div>
+      <div class="gs-label">Guests</div>
+      <div class="gs-controls">
+        <button class="gs-btn" type="button" onclick="changeGuests(-1)">−</button>
+        <span class="gs-count" id="gc">1</span>
+        <button class="gs-btn" type="button" onclick="changeGuests(1)">+</button>
+      </div>
+      <div class="oc-lines">
+        <div class="oc-line"><span class="oc-k">Price per person</span><span class="oc-v">$2,999 AUD</span></div>
+        <div class="oc-line"><span class="oc-k">Guests</span><span class="oc-v" id="oc-g">1 guest</span></div>
+        <div class="oc-line"><span class="oc-k">All flights</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
+        <div class="oc-line"><span class="oc-k">7 nights hotel</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
+        <div class="oc-line"><span class="oc-k">All experiences</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
+      </div>
+      <div class="oc-total">
+        <span class="oct-lbl">Total AUD</span>
+        <span class="oct-amt" id="oc-total">$2,999</span>
+      </div>
+      <button class="btn-pay" id="payBtn" type="button" onclick="proceedToPayment()">Proceed to Payment →</button>
+      <div class="secure-row">🔒 Powered by Stripe · SSL secured</div>
+    </div>
+  </div>
+</div>
+
+<footer style="background:var(--ink);padding:24px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+  <a href="index.html" style="font-size:13px;font-weight:700;letter-spacing:5px;color:#f5f0e8;text-transform:uppercase;text-decoration:none">WKLY<span style="color:#b8924a;font-weight:300">.</span>travel</a>
+  <p style="font-size:11px;color:rgba(245,240,232,.3)">Questions? <a href="mailto:admin@wkly.travel" style="color:#b8924a;text-decoration:none">admin@wkly.travel</a></p>
+</footer>
+
+<script>
+let guestCount = parseInt(new URLSearchParams(window.location.search).get('guests')) || 1;
+updateDisplay();
+
+function changeGuests(d) {
+  guestCount = Math.max(1, Math.min(6, guestCount + d));
+  document.getElementById('guests-select').value = guestCount;
+  updateDisplay();
+}
+function syncGuests(v) { guestCount = parseInt(v); updateDisplay(); }
+function updateDisplay() {
+  document.getElementById('gc').textContent = guestCount;
+  document.getElementById('oc-g').textContent = guestCount + (guestCount===1?' guest':' guests');
+  document.getElementById('oc-total').textContent = '$' + (guestCount * BASE_PRICE).toLocaleString('en-AU');
+}
+function validate() {
+  if (!document.getElementById('fname').value.trim() ||
+      !document.getElementById('lname').value.trim() ||
+      !document.getElementById('email').value.trim() ||
+      !document.getElementById('phone').value.trim()) {
+    alert('Please fill in all required fields.'); return false;
+  }
+  if (!document.getElementById('terms').checked) {
+    alert('Please agree to the Terms & Conditions.'); return false;
+  }
+  return true;
+}
+async function proceedToPayment() {
+  if (!validate()) return;
+  const btn = document.getElementById('payBtn');
+  btn.disabled = true; btn.textContent = 'Saving details…';
+  const data = {
+    firstName: document.getElementById('fname').value.trim(),
+    lastName: document.getElementById('lname').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    guests: guestCount, hub: document.getElementById('hub').value,
+    notes: document.getElementById('notes').value.trim(),
+    episode: 'Episode 01 — Reef & Red Sands',
+    departure: '24 November 2025',
+    total: guestCount * BASE_PRICE + ' AUD',
+  };
+  try {
+    await fetch(CRM_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(data) });
+  } catch(e) { console.warn('CRM:', e); }
+  const url = (STRIPE_LINKS[guestCount] || STRIPE_LINKS[1]) + '?prefilled_email=' + encodeURIComponent(data.email);
+  btn.textContent = 'Redirecting to Stripe…';
+  window.location.href = url;
+}
+</script>
+</body>
+</html>
