@@ -160,20 +160,8 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .ef-check-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink); font-family:'Cormorant Garamond',serif; font-weight:400; }
 .ef-check-item::before { content:'✓'; color:var(--gold); font-size:11px; font-family:'Inter',sans-serif; font-weight:700; flex-shrink:0; }
 
-/* ─── EPISODE COLLAGE ─────────────────────────────── */
-.episode-collage {
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr;
-  grid-template-rows:280px;
-  gap:3px;
-  background:var(--ink);
-  overflow:hidden;
-}
-.ec-img { overflow:hidden; position:relative; }
-.ec-img img { width:100%; height:100%; object-fit:cover; filter:saturate(.88) brightness(.92); transition:transform .8s ease; display:block; }
-.ec-img:hover img { transform:scale(1.05); }
 
-/* ─── BOOKING CTA ─────────────────────────────────── */
+/* ─── BOOKING CTA (between episode intro and itinerary) ── */
 .booking-cta {
   background:var(--cream2);
   padding:56px 80px;
@@ -226,20 +214,20 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .day-row { display:grid; grid-template-columns:1fr 1fr; }
 .day-row.flip { direction:rtl; }
 .day-row.flip > * { direction:ltr; }
-.day-photo { overflow:hidden; min-height:260px; position:relative; }
+.day-photo { overflow:hidden; height:200px; position:relative; }
 .day-photo img { width:100%; height:100%; object-fit:cover; filter:saturate(.88) brightness(.95); transition:transform 8s ease; display:block; }
 .day-row:hover .day-photo img { transform:scale(1.04); }
 .day-content {
-  background:var(--cream); padding:32px 44px;
+  background:var(--cream); padding:20px 32px;
   display:flex; flex-direction:column; justify-content:center;
 }
 .day-row.flip .day-content { background:var(--cream2); }
-.day-number { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:rgba(184,146,74,.1); line-height:1; letter-spacing:-2px; margin-bottom:0; }
-.day-meta { font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; margin-top:-4px; }
-.day-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--ink); line-height:1.2; margin-bottom:10px; letter-spacing:-.3px; }
-.day-desc { font-size:12px; line-height:1.8; color:var(--dim); }
-.day-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
-.day-tag { font-size:8.5px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,146,74,.3); padding:4px 10px; border-radius:2px; }
+.day-number { font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:300; color:rgba(184,146,74,.12); line-height:1; letter-spacing:-2px; margin-bottom:0; }
+.day-meta { font-size:8px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:5px; margin-top:-2px; }
+.day-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:400; color:var(--ink); line-height:1.2; margin-bottom:7px; letter-spacing:-.2px; }
+.day-desc { font-size:11.5px; line-height:1.7; color:var(--dim); }
+.day-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
+.day-tag { font-size:8px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,146,74,.3); padding:3px 8px; border-radius:2px; }
 
 /* ─── BOOK ────────────────────────────────────────── */
 .book-sec {
@@ -337,7 +325,6 @@ footer a { color:var(--gold); text-decoration:none; }
   .day-content { padding:28px 24px; }
   .day-number { font-size:40px; }
   .past-grid { grid-template-columns:1fr; }
-  .episode-collage { grid-template-columns:1fr 1fr; grid-template-rows:180px 180px; }
   .bk-cta-inner { flex-direction:column; padding:32px 28px; gap:28px; }
   footer { padding:24px 32px; flex-direction:column; text-align:center; gap:8px; }
 }
@@ -411,30 +398,34 @@ footer a { color:var(--gold); text-decoration:none; }
   </div>
 </section>
 
-<!-- ══ EPISODE COLLAGE ════════════════════════════════ -->
-<div class="episode-collage">
-  <div class="ec-img">
-    <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1200&q=90" alt="Great Barrier Reef aerial" loading="lazy" />
+
+<!-- ══ BOOKING CTA ════════════════════════════════════ -->
+<section class="booking-cta">
+  <div class="bk-cta-inner reveal">
+    <div class="bk-cta-left">
+      <div class="bk-cta-badge">Ready to book</div>
+      <h2 class="bk-cta-title">Episode 01 · <em>12 spots.</em> Departure 11 May 2026.</h2>
+      <p class="bk-cta-sub">Flights, hotels, transfers, tours — everything arranged. One price, no extras. Booking closes when the last spot goes.</p>
+    </div>
+    <div class="bk-cta-right">
+      <div class="bk-cta-price">$2,999 <span>AUD</span></div>
+      <div class="bk-cta-per">per person · all inclusive</div>
+      <a href="#book" class="btn-bk-cta">Proceed to booking form →</a>
+    </div>
   </div>
-  <div class="ec-img">
-    <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=900&q=90" alt="Great Barrier Reef underwater" loading="lazy" />
-  </div>
-  <div class="ec-img">
-    <img src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=900&q=90" alt="Uluru" loading="lazy" />
-  </div>
-</div>
+</section>
 
 <!-- ══ ITINERARY ══════════════════════════════════════ -->
 <section class="itinerary" id="itinerary">
 
   <div class="itin-header reveal">
     <div class="section-label">Day by day</div>
-    <h2 class="itin-title">Seven days,<br><em>two worlds</em></h2>
+    <h2 class="itin-title">Seven days, <em>two worlds</em></h2>
   </div>
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=1200&q=85" alt="Cairns tropical" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?w=1200&q=85" alt="Cairns" loading="lazy" />
     </div>
     <div class="day-content">
       <div class="day-number">01</div>
@@ -447,7 +438,7 @@ footer a { color:var(--gold); text-decoration:none; }
 
   <div class="day-row flip reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1200&q=85" alt="Great Barrier Reef" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1200&q=85" alt="Great Barrier Reef" loading="lazy" />
     </div>
     <div class="day-content">
       <div class="day-number">02</div>
@@ -523,22 +514,6 @@ footer a { color:var(--gold); text-decoration:none; }
     </div>
   </div>
 
-</section>
-
-<!-- ══ BOOKING CTA ════════════════════════════════════ -->
-<section class="booking-cta">
-  <div class="bk-cta-inner reveal">
-    <div class="bk-cta-left">
-      <div class="bk-cta-badge">Ready to book</div>
-      <h2 class="bk-cta-title">Episode 01 · <em>12 spots.</em><br>Departure 11 May 2026.</h2>
-      <p class="bk-cta-sub">Flights, hotels, transfers, tours — everything arranged. One price, no extras. Booking closes when the last spot goes.</p>
-    </div>
-    <div class="bk-cta-right">
-      <div class="bk-cta-price">$2,999 <span>AUD</span></div>
-      <div class="bk-cta-per">per person · all inclusive</div>
-      <a href="#book" class="btn-bk-cta">Proceed to booking form →</a>
-    </div>
-  </div>
 </section>
 
 <!-- ══ BOOK ═══════════════════════════════════════════ -->
