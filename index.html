@@ -40,10 +40,16 @@ nav {
   transition:border-color .3s, padding .3s;
 }
 nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
-.nav-logo { text-decoration:none; display:flex; flex-direction:column; gap:2px; }
-.nav-logo-main { font-family:'Inter',sans-serif; font-size:14px; font-weight:700; letter-spacing:5px; color:var(--ink); text-transform:uppercase; }
-.nav-logo-main span { color:var(--gold); font-weight:300; }
-.nav-logo-sub { font-size:7.5px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:400; }
+.nav-logo {
+  text-decoration:none;
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:5px;
+  color:var(--ink);
+  text-transform:uppercase;
+}
+.nav-logo span { color:var(--gold); }
 .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
 .nav-links a { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:500; color:var(--stone); text-decoration:none; transition:color .2s; }
 .nav-links a:hover { color:var(--ink); }
@@ -84,69 +90,64 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .hero h1 em { font-style:italic; color:var(--gold); }
 .hero-sub {
   font-size:15px; line-height:1.85; color:var(--dim);
-  max-width:420px; margin-bottom:48px; font-weight:300;
+  max-width:420px; margin-bottom:52px; font-weight:300;
 }
-.hero-stats {
-  display:flex; gap:0;
-  border:1px solid var(--border);
-  margin-bottom:48px;
-  border-radius:4px; overflow:hidden;
-}
-.hero-stat {
-  flex:1; padding:18px 24px;
-  border-right:1px solid var(--border);
-}
-.hero-stat:last-child { border-right:none; }
-.hs-label { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--stone); margin-bottom:6px; }
-.hs-value { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--ink); line-height:1; }
 .hero-actions { display:flex; align-items:center; gap:20px; }
 .btn-primary {
   display:inline-flex; align-items:center; gap:10px;
   background:var(--ink); color:var(--cream);
   font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
-  padding:16px 36px; text-decoration:none; border-radius:2px;
+  padding:18px 40px; text-decoration:none; border-radius:2px;
   font-family:'Inter',sans-serif;
   transition:background .25s, transform .25s, box-shadow .25s;
 }
 .btn-primary:hover { background:var(--gold); transform:translateY(-2px); box-shadow:0 16px 48px rgba(184,146,74,.2); }
-.btn-text {
-  font-size:11px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--stone); text-decoration:none;
-  border-bottom:1px solid var(--border); padding-bottom:2px;
-  transition:color .2s, border-color .2s; font-family:'Inter',sans-serif;
-}
-.btn-text:hover { color:var(--ink); border-color:var(--ink); }
 
-/* Hero right — countdown + image */
+/* ─── HERO RIGHT — COLLAGE ────────────────────────── */
 .hero-right {
   position:relative;
   display:flex; flex-direction:column;
 }
-.hero-img-wrap {
-  flex:1; overflow:hidden; position:relative;
+.hero-collage {
+  flex:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr 1fr;
+  gap:3px;
+  background:var(--ink);
   min-height:500px;
 }
-.hero-img-wrap img {
-  width:100%; height:100%; object-fit:cover;
-  filter:saturate(.9) brightness(.95);
-  transition:transform 10s ease;
+.collage-cell {
+  position:relative;
+  overflow:hidden;
 }
-.hero-img-wrap:hover img { transform:scale(1.03); }
-.hero-img-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom, transparent 50%, rgba(28,22,18,.5) 100%);
+.collage-cell img {
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1.8s ease;
+  transform:scale(1.06);
 }
-.hero-img-caption {
-  position:absolute; bottom:0; left:0; right:0;
-  padding:32px;
+.collage-cell img.active {
+  opacity:1;
+  animation:kb 10s ease-in-out forwards;
 }
-.episode-badge {
-  display:inline-flex; align-items:center; gap:12px;
-  background:rgba(245,240,232,.95); padding:10px 18px;
-  border-radius:2px; margin-bottom:12px;
+@keyframes kb {
+  from { transform:scale(1.06); }
+  to   { transform:scale(1.00); }
 }
-.ep-num { font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); }
-.ep-name { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:400; color:var(--ink); }
+/* thin gold line accent on first cell */
+.collage-cell:first-child::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:2px;
+  background:var(--gold);
+  opacity:.6;
+  z-index:2;
+}
 
 /* Countdown */
 .countdown-bar {
@@ -347,7 +348,7 @@ footer {
   display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
 }
 .footer-logo { font-size:13px; font-weight:700; letter-spacing:5px; color:var(--cream); text-transform:uppercase; text-decoration:none; }
-.footer-logo span { color:var(--gold); font-weight:300; }
+.footer-logo span { color:var(--gold); }
 footer p { font-size:11px; color:rgba(245,240,232,.3); }
 footer a { color:var(--gold); text-decoration:none; }
 
@@ -362,7 +363,7 @@ footer a { color:var(--gold); text-decoration:none; }
   .hero { grid-template-columns:1fr; }
   .hero-left { padding:48px 32px; }
   .hero-right { min-height:400px; }
-  .hero-img-wrap { min-height:400px; }
+  .hero-collage { min-height:400px; }
   .episode-intro .ei-inner,
   .inc-header,
   .book-inner { grid-template-columns:1fr; gap:40px; }
@@ -384,15 +385,10 @@ footer a { color:var(--gold); text-decoration:none; }
 
 <!-- ══ NAV ════════════════════════════════════════════ -->
 <nav id="nav">
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-main">WKLY<span>.</span>travel</div>
-    <div class="nav-logo-sub">One find. Every week.</div>
-  </a>
+  <a href="#" class="nav-logo">WKLY<span>.</span>TRAVEL</a>
   <ul class="nav-links">
-    <li><a href="#episode">This Episode</a></li>
-    <li><a href="#itinerary">Itinerary</a></li>
-    <li><a href="#book">Book</a></li>
-    <li><a href="#past">Past Episodes</a></li>
+    <li><a href="#past">Previous Episodes</a></li>
+    <li><a href="about.html">About Us</a></li>
   </ul>
   <a href="#subscribe" class="nav-subscribe">Subscribe</a>
 </nav>
@@ -402,45 +398,63 @@ footer a { color:var(--gold); text-decoration:none; }
 
   <!-- Left: text -->
   <div class="hero-left">
-    <div class="hero-eyebrow">Episode 01 · Now Open</div>
-    <h1>One find.<br><em>Unrepeatable.</em><br>Every week.</h1>
-    <p class="hero-sub">Most travel is noise. WKLY is one thing: the best experience we could find this week, packaged completely, open for 7 days. When it's gone, it's gone.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hs-label">Departure</div>
-        <div class="hs-value">24 Nov 2025</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hs-label">Duration</div>
-        <div class="hs-value">7 nights</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hs-label">From</div>
-        <div class="hs-value">$2,999</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hs-label">Spots</div>
-        <div class="hs-value">12 only</div>
-      </div>
-    </div>
+    <div class="hero-eyebrow">Episode 01 · Now Live</div>
+    <h1>One unique find.<br><em>Far from ordinary.</em><br>Every week.</h1>
+    <p class="hero-sub">Travel has become predictable. WKLY changes that with one exceptional escape each week, fully packaged and available for 7 days only. Then we move on to the next.</p>
     <div class="hero-actions">
-      <a href="#episode" class="btn-primary">See this episode ↓</a>
-      <a href="#book" class="btn-text">Book now →</a>
+      <a href="#episode" class="btn-primary">See this week's episode ↓</a>
     </div>
   </div>
 
-  <!-- Right: image + countdown -->
+  <!-- Right: collage + countdown -->
   <div class="hero-right">
-    <div class="hero-img-wrap">
-      <img src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=1400&q=90" alt="Uluru, Ayers Rock" />
-      <div class="hero-img-overlay"></div>
-      <div class="hero-img-caption">
-        <div class="episode-badge">
-          <span class="ep-num">Episode 01</span>
-          <span class="ep-name">Reef &amp; Red Sands</span>
-        </div>
+
+    <div class="hero-collage" id="collage">
+
+      <!-- Cell 1 -->
+      <div class="collage-cell">
+        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=85" alt="" />
       </div>
+
+      <!-- Cell 2 -->
+      <div class="collage-cell">
+        <img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85" alt="" />
+      </div>
+
+      <!-- Cell 3 -->
+      <div class="collage-cell">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1545063914-a1a6ec821c88?w=900&q=85" alt="" />
+      </div>
+
+      <!-- Cell 4 -->
+      <div class="collage-cell">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=85" alt="" />
+      </div>
+
+      <!-- Cell 5 -->
+      <div class="collage-cell">
+        <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=900&q=85" alt="" />
+      </div>
+
+      <!-- Cell 6 -->
+      <div class="collage-cell">
+        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85" alt="" />
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=85" alt="" />
+      </div>
+
     </div>
+
     <div class="countdown-bar">
       <span class="cd-label">Booking closes in</span>
       <div class="cd-timer">
@@ -454,6 +468,7 @@ footer a { color:var(--gold); text-decoration:none; }
       </div>
       <div class="cd-spots"><span class="dot"></span>8 spots remaining</div>
     </div>
+
   </div>
 
 </section>
@@ -467,7 +482,7 @@ footer a { color:var(--gold); text-decoration:none; }
       <p class="ei-desc">From the turquoise waters of the Great Barrier Reef to the ancient red heart of Australia — this is seven days that captures two of the world's most extraordinary natural wonders, arranged completely, with nothing left to figure out. Cairns to Uluru. Reef to red sand. Unrepeatable.</p>
     </div>
     <div class="ei-facts">
-      <div class="ef"><span class="ef-k">Departure</span><span class="ef-v">24 November 2025</span></div>
+      <div class="ef"><span class="ef-k">Departure</span><span class="ef-v">24 November 2027</span></div>
       <div class="ef"><span class="ef-k">Duration</span><span class="ef-v">7 days / 6 nights</span></div>
       <div class="ef"><span class="ef-k">Cairns hotel</span><span class="ef-v">5-star, breakfast incl.</span></div>
       <div class="ef"><span class="ef-k">Uluru hotel</span><span class="ef-v">4.5-star resort, breakfast incl.</span></div>
@@ -649,7 +664,7 @@ footer a { color:var(--gold); text-decoration:none; }
       <p class="book-sub">No waitlist. No extensions. Booking closes when the week ends or when the last spot goes — whichever comes first.</p>
       <div class="book-departure">
         <span class="bd-label">Departure</span>
-        <span class="bd-value">24 November 2025 · East Coast Australia</span>
+        <span class="bd-value">24 November 2027 · East Coast Australia</span>
       </div>
       <div class="cd-spots" style="gap:10px;font-size:13px;color:rgba(245,240,232,.45)">
         <span class="dot"></span>8 of 12 spots remaining
@@ -671,7 +686,7 @@ footer a { color:var(--gold); text-decoration:none; }
 
         <div class="price-breakdown">
           <div class="pb-row"><span class="pb-k">Price per person</span><span class="pb-v">$2,999 AUD</span></div>
-          <div class="pb-row"><span class="pb-k">Guests</span><span class="pb-v" id="pb-guests">1</span></div>
+          <div class="pb-row"><span class="pb-k">Guests</span><span class="pb-v" id="pb-guests">1 guest</span></div>
           <div class="pb-row"><span class="pb-k">Flights included</span><span class="pb-v" style="color:var(--gold)">✓ Yes</span></div>
           <div class="pb-row"><span class="pb-k">All accommodation</span><span class="pb-v" style="color:var(--gold)">✓ Yes</span></div>
           <div class="pb-row"><span class="pb-k">All experiences</span><span class="pb-v" style="color:var(--gold)">✓ Yes</span></div>
@@ -702,7 +717,7 @@ footer a { color:var(--gold); text-decoration:none; }
 <section class="past-sec" id="past">
   <div class="past-inner">
     <div class="past-header reveal">
-      <h2 class="past-title">Past<br><em>episodes</em></h2>
+      <h2 class="past-title">Previous<br><em>episodes</em></h2>
       <p style="font-size:13px;color:var(--stone);max-width:280px;text-align:right;line-height:1.7">Every find is unique. Past episodes are shown here for reference — they don't come back.</p>
     </div>
     <div class="past-grid reveal">
@@ -748,8 +763,8 @@ footer a { color:var(--gold); text-decoration:none; }
 
 <!-- ══ FOOTER ══════════════════════════════════════════ -->
 <footer>
-  <a href="#" class="footer-logo">WKLY<span>.</span>travel</a>
-  <p>© 2025 WKLY.travel · <a href="mailto:admin@wkly.travel">admin@wkly.travel</a></p>
+  <a href="#" class="footer-logo">WKLY<span>.</span>TRAVEL</a>
+  <p>© 2026 WKLY.travel · <a href="mailto:admin@wkly.travel">admin@wkly.travel</a></p>
   <p>One find. Every week. Unrepeatable.</p>
 </footer>
 
@@ -775,6 +790,28 @@ function updateCountdown() {
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+/* ── COLLAGE ── */
+(function initCollage() {
+  const cells = document.querySelectorAll('.collage-cell');
+  cells.forEach((cell, i) => {
+    const imgs = cell.querySelectorAll('img');
+    let current = 0;
+
+    // Activate first image immediately
+    imgs[0].classList.add('active');
+
+    // Each cell cycles at a slightly different rate, staggered starts
+    const interval = 4000 + i * 600;
+    setTimeout(() => {
+      setInterval(() => {
+        imgs[current].classList.remove('active');
+        current = (current + 1) % imgs.length;
+        imgs[current].classList.add('active');
+      }, interval);
+    }, i * 900); // stagger the start so all 6 don't change at once
+  });
+})();
 
 /* ── GUEST SELECTOR ── */
 const BASE_PRICE = 2999;
