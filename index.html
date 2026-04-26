@@ -112,7 +112,7 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 /* Hero right — image card */
 .hero-right { display:flex; align-items:center; justify-content:flex-end; }
 .hero-img-card {
-  width:100%; max-width:520px;
+  width:100%; max-width:640px;
   aspect-ratio:4/3;
   border-radius:16px;
   overflow:hidden;
@@ -128,74 +128,92 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 }
 .slide.active { opacity:1; }
 
-/* Hero stats bar */
-.hero-stats {
-  max-width:1200px; margin:0 auto;
-  border-top:1px solid var(--border);
-  padding:24px 0;
-  display:flex; gap:0;
-}
-.hstat {
-  flex:1;
-  border-right:1px solid var(--border);
-  padding:0 32px;
-}
-.hstat:first-child { padding-left:0; }
-.hstat:last-child { border-right:none; }
-.hstat-n { display:block; font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:400; color:var(--ink); letter-spacing:-0.5px; line-height:1; margin-bottom:4px; }
-.hstat-l { font-size:9px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--stone); }
-
 .dot { width:6px; height:6px; background:var(--gold); border-radius:50%; animation:pulse 1.8s ease infinite; flex-shrink:0; }
 .cd-spots { display:flex; align-items:center; gap:8px; font-size:11px; font-weight:600; color:var(--gold); }
 
 /* ─── EPISODE INTRO ───────────────────────────────── */
 .episode-intro {
   background:var(--cream2);
+  padding:72px 80px;
+  border-top:1px solid var(--border);
+}
+.ei-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:center; }
+.ei-ep-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:18px;
+}
+.ei-ep-badge::before { content:''; width:28px; height:1px; background:var(--gold); }
+.ei-label { font-size:9px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--stone); margin-bottom:12px; }
+.ei-title { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,3.8vw,56px); font-weight:300; line-height:1.05; letter-spacing:-1.5px; color:var(--ink); margin-bottom:20px; }
+.ei-title em { font-style:italic; color:var(--gold); }
+.ei-desc { font-size:14px; line-height:1.85; color:var(--dim); }
+.ei-facts { display:flex; flex-direction:column; gap:0; border:1px solid var(--border); border-radius:4px; overflow:hidden; background:var(--cream); }
+.ef { display:flex; justify-content:space-between; align-items:center; padding:14px 22px; border-bottom:1px solid var(--border); }
+.ef:last-child { border-bottom:none; }
+.ef-k { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--stone); font-weight:600; }
+.ef-v { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:400; color:var(--ink); text-align:right; }
+.ef-v.gold { color:var(--gold); }
+.ef-checklist { display:flex; flex-direction:column; gap:6px; padding:16px 22px; border-bottom:1px solid var(--border); }
+.ef-checklist:last-child { border-bottom:none; }
+.ef-checklist-label { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--stone); font-weight:600; margin-bottom:4px; }
+.ef-check-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink); font-family:'Cormorant Garamond',serif; font-weight:400; }
+.ef-check-item::before { content:'✓'; color:var(--gold); font-size:11px; font-family:'Inter',sans-serif; font-weight:700; flex-shrink:0; }
+
+/* ─── EPISODE COLLAGE ─────────────────────────────── */
+.episode-collage {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  grid-template-rows:280px;
+  gap:3px;
+  background:var(--ink);
+  overflow:hidden;
+}
+.ec-img { overflow:hidden; position:relative; }
+.ec-img img { width:100%; height:100%; object-fit:cover; filter:saturate(.88) brightness(.92); transition:transform .8s ease; display:block; }
+.ec-img:hover img { transform:scale(1.05); }
+
+/* ─── BOOKING CTA ─────────────────────────────────── */
+.booking-cta {
+  background:var(--cream2);
   padding:56px 80px;
   border-top:1px solid var(--border);
 }
-.ei-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
-.ei-label { font-size:9px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
-.ei-label::after { content:''; flex:1; max-width:32px; height:1px; background:var(--gold); }
-.ei-title { font-family:'Cormorant Garamond',serif; font-size:clamp(26px,2.6vw,38px); font-weight:300; line-height:1.1; letter-spacing:-1px; color:var(--ink); margin-bottom:14px; }
-.ei-title em { font-style:italic; color:var(--gold); }
-.ei-desc { font-size:13px; line-height:1.8; color:var(--dim); }
-.ei-facts { display:flex; flex-direction:column; gap:0; border:1px solid var(--border); border-radius:4px; overflow:hidden; }
-.ef { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-bottom:1px solid var(--border); }
-.ef:last-child { border-bottom:none; }
-.ef-k { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--stone); font-weight:500; }
-.ef-v { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:400; color:var(--ink); text-align:right; }
-.ef-v.gold { color:var(--gold); }
-
-/* ─── FULL BLEED PHOTO ────────────────────────────── */
-.full-photo {
-  height:38vh; min-height:260px; overflow:hidden; position:relative;
+.bk-cta-inner {
+  max-width:1200px; margin:0 auto;
+  border:2px solid var(--gold);
+  border-radius:6px;
+  padding:44px 52px;
+  display:flex; align-items:center; justify-content:space-between; gap:48px;
+  background:linear-gradient(135deg, rgba(184,146,74,.06) 0%, transparent 60%);
+  position:relative; overflow:hidden;
 }
-.full-photo img { width:100%; height:100%; object-fit:cover; filter:saturate(.85) brightness(.9); }
-.full-photo-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to right, rgba(28,22,18,.5) 0%, transparent 60%);
-  display:flex; align-items:flex-end;
-  padding:48px 80px;
+.bk-cta-inner::after {
+  content:''; position:absolute; right:-80px; top:-80px;
+  width:320px; height:320px;
+  border-radius:50%; border:1px solid rgba(184,146,74,.1);
+  pointer-events:none;
 }
-.fpo-text { font-family:'Cormorant Garamond',serif; font-size:clamp(22px,2.4vw,36px); font-weight:300; color:#fff; letter-spacing:-0.5px; line-height:1.1; max-width:400px; }
-.fpo-text em { font-style:italic; color:var(--gold2); }
-
-/* ─── INCLUDES ────────────────────────────────────── */
-.includes-sec {
-  background:var(--cream); padding:56px 80px;
-  border-top:1px solid var(--border);
+.bk-cta-left { }
+.bk-cta-badge { font-size:9px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.bk-cta-badge::before { content:''; width:20px; height:1px; background:var(--gold); }
+.bk-cta-title { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3vw,44px); font-weight:300; letter-spacing:-1px; color:var(--ink); line-height:1.05; margin-bottom:10px; }
+.bk-cta-title em { font-style:italic; color:var(--gold); }
+.bk-cta-sub { font-size:13px; color:var(--dim); line-height:1.65; max-width:440px; }
+.bk-cta-right { flex-shrink:0; text-align:center; }
+.bk-cta-price { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:var(--ink); letter-spacing:-2px; line-height:1; margin-bottom:4px; }
+.bk-cta-price span { font-size:16px; color:var(--stone); letter-spacing:0; }
+.bk-cta-per { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--stone); margin-bottom:20px; }
+.btn-bk-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--gold); color:var(--ink);
+  font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+  padding:16px 32px; text-decoration:none; border-radius:100px;
+  font-family:'Inter',sans-serif;
+  transition:background .25s, transform .2s;
+  white-space:nowrap;
 }
-.inc-inner { max-width:1200px; margin:0 auto; }
-.inc-header { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; margin-bottom:36px; }
-.inc-title { font-family:'Cormorant Garamond',serif; font-size:clamp(24px,2.4vw,36px); font-weight:300; line-height:1.1; letter-spacing:-1px; color:var(--ink); }
-.inc-title em { font-style:italic; color:var(--gold); }
-.inc-intro { font-size:13px; line-height:1.75; color:var(--dim); padding-top:6px; }
-.inc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
-.inc-item { background:var(--cream); padding:20px 22px; }
-.inc-icon { font-size:16px; margin-bottom:8px; }
-.inc-item-title { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:500; color:var(--ink); margin-bottom:6px; line-height:1.3; }
-.inc-item-desc { font-size:11.5px; line-height:1.65; color:var(--dim); }
+.btn-bk-cta:hover { background:var(--gold2); transform:translateY(-2px); }
 
 /* ─── ITINERARY ───────────────────────────────────── */
 .itinerary { background:var(--cream2); }
@@ -311,19 +329,17 @@ footer a { color:var(--gold); text-decoration:none; }
   nav.stuck { padding:14px 32px; }
   .hero { padding:0 24px; }
   .hero-inner { grid-template-columns:1fr; padding:100px 0 40px; gap:36px; }
-  .hero-stats { gap:0; flex-wrap:wrap; }
-  .hstat { flex:1 1 40%; padding:16px 16px; }
-  .episode-intro .ei-inner, .inc-header, .book-inner { grid-template-columns:1fr; gap:40px; }
-  .episode-intro, .includes-sec, .past-sec, .sub-sec, .book-sec { padding:40px 24px; }
+  .episode-intro .ei-inner, .book-inner { grid-template-columns:1fr; gap:40px; }
+  .episode-intro, .past-sec, .sub-sec, .book-sec, .booking-cta { padding:40px 24px; }
   .itin-header { padding:40px 24px 24px; }
   .day-row, .day-row.flip { grid-template-columns:1fr; direction:ltr; }
   .day-photo { min-height:220px; }
   .day-content { padding:28px 24px; }
   .day-number { font-size:40px; }
   .past-grid { grid-template-columns:1fr; }
-  .inc-grid { grid-template-columns:1fr 1fr; }
+  .episode-collage { grid-template-columns:1fr 1fr; grid-template-rows:180px 180px; }
+  .bk-cta-inner { flex-direction:column; padding:32px 28px; gap:28px; }
   footer { padding:24px 32px; flex-direction:column; text-align:center; gap:8px; }
-  .full-photo-overlay { padding:32px; }
 }
 
 </style>
@@ -368,24 +384,6 @@ footer a { color:var(--gold); text-decoration:none; }
 
   </div>
 
-  <div class="hero-stats">
-    <div class="hstat">
-      <span class="hstat-n">Episode 01</span>
-      <span class="hstat-l">Now live</span>
-    </div>
-    <div class="hstat">
-      <span class="hstat-n">7 Days</span>
-      <span class="hstat-l">Duration</span>
-    </div>
-    <div class="hstat">
-      <span class="hstat-n">$2,999</span>
-      <span class="hstat-l">AUD per person</span>
-    </div>
-    <div class="hstat">
-      <span class="hstat-n">12 Spots</span>
-      <span class="hstat-l">Available</span>
-    </div>
-  </div>
 
 </section>
 
@@ -393,74 +391,38 @@ footer a { color:var(--gold); text-decoration:none; }
 <section class="episode-intro" id="episode">
   <div class="ei-inner reveal">
     <div>
-      <div class="ei-label">This week's episode</div>
+      <div class="ei-ep-badge">Ep 01 · 11–18 May 2026</div>
       <h2 class="ei-title">Reef &amp; <em>Red Sands</em></h2>
-      <p class="ei-desc">From the turquoise waters of the Great Barrier Reef to the ancient red heart of Australia — this is seven days that captures two of the world's most extraordinary natural wonders, arranged completely, with nothing left to figure out. Cairns to Uluru. Reef to red sand. Unrepeatable.</p>
+      <p class="ei-desc">Fly into Cairns, gateway to the largest living structure on Earth. Spend three days exploring the Great Barrier Reef — by boat, by sea, by wonder. Then board a flight inland to the Red Centre and your first sight of Uluru, rising 348 metres from the desert floor, glowing ochre as the sun falls. Two of the world's great natural wonders. Seven days. Nothing left to arrange.</p>
     </div>
     <div class="ei-facts">
-      <div class="ef"><span class="ef-k">Departure</span><span class="ef-v">24 November 2027</span></div>
-      <div class="ef"><span class="ef-k">Duration</span><span class="ef-v">7 days / 6 nights</span></div>
-      <div class="ef"><span class="ef-k">Cairns hotel</span><span class="ef-v">5-star, breakfast incl.</span></div>
-      <div class="ef"><span class="ef-k">Uluru hotel</span><span class="ef-v">4.5-star resort, breakfast incl.</span></div>
-      <div class="ef"><span class="ef-k">Flights</span><span class="ef-v">East Coast → Cairns → Uluru → Home</span></div>
-      <div class="ef"><span class="ef-k">Group size</span><span class="ef-v">Max 12 guests</span></div>
+      <div class="ef"><span class="ef-k">Departure</span><span class="ef-v">11 May 2026 · East Coast Australia</span></div>
+      <div class="ef-checklist">
+        <div class="ef-checklist-label">What's included</div>
+        <div class="ef-check-item">Return flights (East Coast → Cairns → Uluru → Home)</div>
+        <div class="ef-check-item">5-star hotels with daily breakfast</div>
+        <div class="ef-check-item">All private airport transfers</div>
+        <div class="ef-check-item">Kuranda Scenic Railway</div>
+        <div class="ef-check-item">Field of Light dinner at Uluru</div>
+        <div class="ef-check-item">All guided tours &amp; resort activities</div>
+      </div>
       <div class="ef"><span class="ef-k">Price</span><span class="ef-v gold">$2,999 AUD per person</span></div>
     </div>
   </div>
 </section>
 
-<!-- ══ FULL BLEED PHOTO ═══════════════════════════════ -->
-<div class="full-photo">
-  <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=2000&q=85" alt="Great Barrier Reef" />
-  <div class="full-photo-overlay">
-    <div class="fpo-text">Cairns &amp; the<br><em>Great Barrier Reef</em></div>
+<!-- ══ EPISODE COLLAGE ════════════════════════════════ -->
+<div class="episode-collage">
+  <div class="ec-img">
+    <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1200&q=90" alt="Great Barrier Reef aerial" loading="lazy" />
+  </div>
+  <div class="ec-img">
+    <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=900&q=90" alt="Great Barrier Reef underwater" loading="lazy" />
+  </div>
+  <div class="ec-img">
+    <img src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=900&q=90" alt="Uluru" loading="lazy" />
   </div>
 </div>
-
-<!-- ══ INCLUDES ══════════════════════════════════════ -->
-<section class="includes-sec" id="includes">
-  <div class="inc-inner">
-    <div class="inc-header reveal">
-      <div>
-        <div class="section-label">What's included</div>
-        <h2 class="inc-title">Everything.<br><em>Arranged.</em></h2>
-      </div>
-      <p class="inc-intro">Every element of this experience is pre-arranged, pre-paid, and waiting for you. No booking platforms, no comparing options, no wondering if you got a good deal. We've done all of that already.</p>
-    </div>
-    <div class="inc-grid reveal">
-      <div class="inc-item">
-        <div class="inc-icon">✈️</div>
-        <div class="inc-item-title">All flights</div>
-        <div class="inc-item-desc">Return flights from your East Coast city to Cairns, plus Cairns to Ayers Rock and home.</div>
-      </div>
-      <div class="inc-item">
-        <div class="inc-icon">🏨</div>
-        <div class="inc-item-title">7 nights accommodation</div>
-        <div class="inc-item-desc">3 nights at a 5-star Cairns hotel and 4 nights at the 4.5-star Ayers Rock Resort — both with daily breakfast.</div>
-      </div>
-      <div class="inc-item">
-        <div class="inc-icon">🚌</div>
-        <div class="inc-item-title">All transfers</div>
-        <div class="inc-item-desc">Private airport transfers in Cairns, all shuttles at Ayers Rock Resort. Porterage included throughout.</div>
-      </div>
-      <div class="inc-item">
-        <div class="inc-icon">🚂</div>
-        <div class="inc-item-title">Kuranda Scenic Railway</div>
-        <div class="inc-item-desc">One of Australia's most iconic rail journeys — through rainforest, over gorges, into the ancient Atherton Tablelands.</div>
-      </div>
-      <div class="inc-item">
-        <div class="inc-icon">🌟</div>
-        <div class="inc-item-title">Field of Light Dinner</div>
-        <div class="inc-item-desc">Bruce Munro's 50,000-stem light installation at Uluru — dinner under the stars, Uluru glowing in the distance.</div>
-      </div>
-      <div class="inc-item">
-        <div class="inc-icon">🏜️</div>
-        <div class="inc-item-title">Ayers Rock Resort activities</div>
-        <div class="inc-item-desc">All free resort activities included — guided walks, cultural talks, sunrise Uluru viewing, and more.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ ITINERARY ══════════════════════════════════════ -->
 <section class="itinerary" id="itinerary">
@@ -472,40 +434,40 @@ footer a { color:var(--gold); text-decoration:none; }
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1200&q=85" alt="Cairns" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=1200&q=85" alt="Cairns tropical" loading="lazy" />
     </div>
     <div class="day-content">
       <div class="day-number">01</div>
-      <div class="day-meta">Day 1 · 24 November · Cairns</div>
+      <div class="day-meta">Day 1 · 11 May · Cairns</div>
       <h3 class="day-title">Arrival — Cairns</h3>
-      <p class="day-desc">Fly from your East Coast city direct to Cairns. Your private transfer meets you at arrivals and takes you to your 5-star hotel in the heart of the city. Check in, breathe in the tropical air, and let Cairns settle around you. Tonight is yours — the Esplanade, a waterfront dinner, an early night. Tomorrow the reef waits.</p>
+      <p class="day-desc">Fly from your East Coast city direct to Cairns. Your private transfer meets you at arrivals and takes you to your 5-star hotel in the heart of the city. Check in, breathe the tropical air, and let Cairns settle around you. Tonight is yours — the Esplanade, a waterfront dinner, an early night. Tomorrow the reef waits.</p>
       <div class="day-tags"><span class="day-tag">Private transfer</span><span class="day-tag">5-star hotel</span><span class="day-tag">Breakfast incl.</span></div>
     </div>
   </div>
 
   <div class="day-row flip reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1200&q=85" alt="Great Barrier Reef" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1200&q=85" alt="Great Barrier Reef" loading="lazy" />
     </div>
     <div class="day-content">
       <div class="day-number">02</div>
-      <div class="day-meta">Day 2 · 25 November · Cairns</div>
-      <h3 class="day-title">Cairns — At Leisure</h3>
-      <p class="day-desc">Breakfast at the hotel. Today is entirely yours to explore Cairns and the region at your own pace. The city is the gateway to one of the world's seven natural wonders — the Great Barrier Reef. Options abound: reef day trips, rainforest walks, the night markets, kayaking the inlet. Your WKLY concierge can book anything you'd like.</p>
-      <div class="day-tags"><span class="day-tag">At leisure</span><span class="day-tag">Breakfast incl.</span><span class="day-tag">Concierge on call</span></div>
+      <div class="day-meta">Day 2 · 12 May · Great Barrier Reef</div>
+      <h3 class="day-title">The Great Barrier Reef</h3>
+      <p class="day-desc">Breakfast at the hotel, then board a reef day cruise out to the outer reef. Snorkel or dive above 2,900 individual reefs, 900 islands, and the most biodiverse marine ecosystem on the planet. Back in Cairns by late afternoon. The night markets, a cold drink, and the sound of the tropics all around you.</p>
+      <div class="day-tags"><span class="day-tag">Reef day cruise</span><span class="day-tag">Snorkel &amp; dive</span><span class="day-tag">Breakfast incl.</span></div>
     </div>
   </div>
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&q=85" alt="Kuranda Railway" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&q=85" alt="Kuranda Rainforest" loading="lazy" />
     </div>
     <div class="day-content">
       <div class="day-number">03</div>
-      <div class="day-meta">Day 3 · 26 November · Kuranda</div>
+      <div class="day-meta">Day 3 · 13 May · Kuranda</div>
       <h3 class="day-title">The Kuranda Scenic Railway</h3>
-      <p class="day-desc">Transfer from your hotel to the historic Cairns Railway Station. Board the Kuranda Scenic Railway — a journey through ancient rainforest, across the Barron Gorge, past fifteen hand-cut tunnels and dozens of bridges built over a century ago. Arrive in Kuranda village. Transfer back to Cairns. One of Australia's great rail experiences, unhurried.</p>
-      <div class="day-tags"><span class="day-tag">Scenic Railway</span><span class="day-tag">All transfers incl.</span><span class="day-tag">Breakfast incl.</span></div>
+      <p class="day-desc">Transfer to Cairns Railway Station and board the Kuranda Scenic Railway — a journey through ancient rainforest, across the Barron Gorge, past hand-cut tunnels and century-old bridges. Arrive in Kuranda village, perched in the rainforest canopy. Transfer back to Cairns. One of Australia's great rail experiences, unhurried.</p>
+      <div class="day-tags"><span class="day-tag">Scenic Railway incl.</span><span class="day-tag">All transfers incl.</span><span class="day-tag">Breakfast incl.</span></div>
     </div>
   </div>
 
@@ -515,52 +477,68 @@ footer a { color:var(--gold); text-decoration:none; }
     </div>
     <div class="day-content">
       <div class="day-number">04</div>
-      <div class="day-meta">Day 4 · 27 November · Uluru</div>
+      <div class="day-meta">Day 4 · 14 May · Uluru</div>
       <h3 class="day-title">Cairns → Uluru</h3>
-      <p class="day-desc">Transfer to Cairns Airport. Fly to Ayers Rock Airport. Shuttle to the resort — and your first view of Uluru. There is nothing that prepares you for it. Check into your 4.5-star hotel at Ayers Rock Resort. This evening: a sunset viewing of Uluru, changing colour through ochre to deep violet as the light falls. Dinner at the resort.</p>
+      <p class="day-desc">Transfer to Cairns Airport. Fly to Ayers Rock Airport. Shuttle to the resort — and your first view of Uluru. There is nothing that prepares you for it. Check into your 4.5-star hotel at Ayers Rock Resort. This evening: a sunset viewing of Uluru, changing colour through ochre to deep violet as the light falls.</p>
       <div class="day-tags"><span class="day-tag">Flight incl.</span><span class="day-tag">Shuttle incl.</span><span class="day-tag">4.5-star resort</span></div>
     </div>
   </div>
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85" alt="Field of Light" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&q=85" alt="Field of Light Uluru" loading="lazy" />
     </div>
     <div class="day-content">
       <div class="day-number">05</div>
-      <div class="day-meta">Day 5 · 28 November · Uluru</div>
+      <div class="day-meta">Day 5 · 15 May · Uluru</div>
       <h3 class="day-title">Field of Light Dinner</h3>
-      <p class="day-desc">Breakfast, then a day exploring the walking tracks and cultural sites around Uluru at your own pace. As the sun begins to fall, transfer to Bruce Munro's Field of Light — 50,000 slender stems tipped with frosted glass spheres that glow across the desert floor. Dinner is served under an open sky with Uluru lit by the last of the day's light.</p>
+      <p class="day-desc">Breakfast, then a day exploring the walking tracks and cultural sites around Uluru. As the sun begins to fall, transfer to Bruce Munro's Field of Light — 50,000 slender stems tipped with frosted glass spheres glowing across the desert floor. Dinner is served under an open sky with Uluru lit by the last of the day's light.</p>
       <div class="day-tags"><span class="day-tag">Field of Light incl.</span><span class="day-tag">Dinner incl.</span><span class="day-tag">Uluru views</span></div>
     </div>
   </div>
 
   <div class="day-row flip reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85" alt="Uluru sunrise" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85" alt="Kata Tjuta Red Centre" loading="lazy" />
     </div>
     <div class="day-content">
       <div class="day-number">06</div>
-      <div class="day-meta">Day 6 · 29 November · Uluru</div>
+      <div class="day-meta">Day 6 · 16 May · Uluru</div>
       <h3 class="day-title">The Red Centre — At Leisure</h3>
-      <p class="day-desc">An early alarm is worth it — Uluru at sunrise is one of those moments you carry for life. Breakfast, then a free day to explore the full suite of activities Ayers Rock Resort includes: guided cultural walks, the Kata Tjuta Valley of the Winds, dot painting workshops, camel rides at sunset. Or simply: sit, watch, and let the desert do its work.</p>
+      <p class="day-desc">An early alarm is worth it — Uluru at sunrise is one of those moments you carry for life. Breakfast, then a free day to explore everything Ayers Rock Resort includes: guided cultural walks, the Kata Tjuta Valley of the Winds, dot painting workshops, camel rides at sunset. Or simply: sit, watch, and let the desert do its work.</p>
       <div class="day-tags"><span class="day-tag">Free activities incl.</span><span class="day-tag">Kata Tjuta</span><span class="day-tag">Sunrise viewing</span></div>
     </div>
   </div>
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85" alt="Departure" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85" alt="Departure flight" loading="lazy" />
     </div>
     <div class="day-content">
       <div class="day-number">07</div>
-      <div class="day-meta">Day 7 · 30 November · Departure</div>
+      <div class="day-meta">Day 7 · 17–18 May · Departure</div>
       <h3 class="day-title">Departure — Home</h3>
-      <p class="day-desc">Final breakfast at the resort. Shuttle to Ayers Rock Airport. Flight home to your city. Your WKLY travel pack — a curated PDF with every booking reference, contact, restaurant recommendation and experience note from the trip — is waiting in your inbox. Next Monday, we find something new.</p>
+      <p class="day-desc">Final breakfast at the resort. Shuttle to Ayers Rock Airport. Flight home to your city. Your WKLY travel pack — a curated PDF with every booking reference, contact number, restaurant recommendation and experience note from the trip — is waiting in your inbox. Next Monday, we find something new.</p>
       <div class="day-tags"><span class="day-tag">Shuttle incl.</span><span class="day-tag">Return flight incl.</span><span class="day-tag">WKLY travel pack</span></div>
     </div>
   </div>
 
+</section>
+
+<!-- ══ BOOKING CTA ════════════════════════════════════ -->
+<section class="booking-cta">
+  <div class="bk-cta-inner reveal">
+    <div class="bk-cta-left">
+      <div class="bk-cta-badge">Ready to book</div>
+      <h2 class="bk-cta-title">Episode 01 · <em>12 spots.</em><br>Departure 11 May 2026.</h2>
+      <p class="bk-cta-sub">Flights, hotels, transfers, tours — everything arranged. One price, no extras. Booking closes when the last spot goes.</p>
+    </div>
+    <div class="bk-cta-right">
+      <div class="bk-cta-price">$2,999 <span>AUD</span></div>
+      <div class="bk-cta-per">per person · all inclusive</div>
+      <a href="#book" class="btn-bk-cta">Proceed to booking form →</a>
+    </div>
+  </div>
 </section>
 
 <!-- ══ BOOK ═══════════════════════════════════════════ -->
@@ -573,7 +551,7 @@ footer a { color:var(--gold); text-decoration:none; }
       <p class="book-sub">No waitlist. No extensions. Booking closes when the week ends or when the last spot goes — whichever comes first.</p>
       <div class="book-departure">
         <span class="bd-label">Departure</span>
-        <span class="bd-value">24 November 2027 · East Coast Australia</span>
+        <span class="bd-value">11 May 2026 · East Coast Australia</span>
       </div>
       <div class="cd-spots"><span class="dot"></span>8 of 12 spots remaining</div>
     </div>
