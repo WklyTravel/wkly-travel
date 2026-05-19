@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WKLY.travel — One find. Every week. Unrepeatable.</title>
+<title>WKLY.travel — Bali, Island of the Gods · Ep 02</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -64,9 +64,9 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
   border-bottom:1px solid var(--border);
 }
 .hero-inner {
-  max-width:1200px; margin:0 auto;
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:64px; align-items:center;
+  max-width:1280px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1.35fr;
+  gap:56px; align-items:center;
   padding:120px 0 56px;
 }
 .hero-left { display:flex; flex-direction:column; }
@@ -110,10 +110,10 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .btn-secondary:hover { color:var(--ink); }
 
 /* Hero right — image card */
-.hero-right { display:flex; align-items:center; justify-content:flex-end; }
+.hero-right { display:flex; align-items:center; justify-content:flex-start; }
 .hero-img-card {
-  width:100%; max-width:640px;
-  aspect-ratio:4/3;
+  width:100%; max-width:820px;
+  aspect-ratio:16/9;
   border-radius:16px;
   overflow:hidden;
   position:relative;
@@ -124,7 +124,7 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
   top:0; left:0; width:100%; height:100%;
   object-fit:cover;
   opacity:0;
-  transition:opacity 1.8s ease;
+  transition:opacity 1s ease;
 }
 .slide.active { opacity:1; }
 
@@ -290,7 +290,8 @@ footer a { color:var(--gold); text-decoration:none; }
   nav { padding:18px 32px; }
   nav.stuck { padding:14px 32px; }
   .hero { padding:0 24px; }
-  .hero-inner { grid-template-columns:1fr; padding:100px 0 40px; gap:36px; }
+  .hero-inner { grid-template-columns:1fr; padding:100px 0 40px; gap:36px; direction:ltr; }
+  .hero-inner > * { direction:ltr; }
   .episode-intro .ei-inner { grid-template-columns:1fr; gap:40px; }
   .episode-intro, .past-sec, .sub-sec, .booking-cta { padding:40px 24px; }
   .itin-header { padding:40px 24px 24px; }
@@ -334,12 +335,17 @@ footer a { color:var(--gold); text-decoration:none; }
 
     <div class="hero-right">
       <div class="hero-img-card">
-        <img class="slide" src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=90" alt="" />
-        <img class="slide" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1200&q=90" alt="" />
-        <img class="slide" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=90" alt="" />
-        <img class="slide" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=90" alt="" />
-        <img class="slide" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=90" alt="" />
-        <img class="slide" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=90" alt="" />
+        <img class="slide" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1400&q=90" alt="" />
+        <img class="slide" src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1400&q=90" alt="" />
+        <img class="slide" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1400&q=90" alt="" />
+        <img class="slide" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1400&q=90" alt="" />
+        <img class="slide" src="https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="" />
+        <img class="slide" src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="" />
+        <img class="slide" src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1400&q=90" alt="" />
+        <img class="slide" src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="" />
+        <img class="slide" src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=1400&q=90" alt="" />
+        <img class="slide" src="https://images.pexels.com/photos/1802183/pexels-photo-1802183.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="" />
+        <img class="slide" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1400&q=90" alt="" />
       </div>
     </div>
 
@@ -352,23 +358,24 @@ footer a { color:var(--gold); text-decoration:none; }
 <section class="episode-intro" id="episode">
   <div class="ei-inner reveal">
     <div>
-      <div class="ei-ep-badge">Ep 01 · 11–18 May 2026</div>
-      <h2 class="ei-title">Reef &amp; <em>Red Sands</em></h2>
-      <p class="ei-desc">Fly into Cairns, gateway to the largest living structure on Earth. Spend three days exploring the Great Barrier Reef — by boat, by sea, by wonder. Then board a flight inland to the Red Centre and your first sight of Uluru, rising 348 metres from the desert floor, glowing ochre as the sun falls. Two of the world's great natural wonders. Seven days. Nothing left to arrange.</p>
+      <div class="ei-ep-badge">Ep 02 · 20–27 Sep 2026</div>
+      <h2 class="ei-title">Bali — <em>Island of the Gods</em></h2>
+      <p class="ei-desc">Fly into Bali and transfer straight to your 5-star all-inclusive resort on the pristine shores of Nusa Dua. Over seven days: beach mornings at one of Indonesia's finest resorts, a vintage VW jeep through Mount Batur's volcanic lava fields, sacred rice terraces and temples in Ubud, a sunrise hike to the summit of an active volcano, and a two-hour Balinese spa ritual. Everything is arranged. Every meal included. You arrive with nothing to do but show up.</p>
       <a href="#booking-cta" class="ei-book-link">Proceed to booking form →</a>
     </div>
     <div class="ei-facts">
-      <div class="ef"><span class="ef-k">Departure</span><span class="ef-v">11 May 2026 · East Coast Australia</span></div>
+      <div class="ef"><span class="ef-k">Departure</span><span class="ef-v">20 Sep 2026 · East Coast Australia</span></div>
       <div class="ef-checklist">
         <div class="ef-checklist-label">What's included</div>
-        <div class="ef-check-item">Return flights (East Coast → Cairns → Uluru → Home)</div>
-        <div class="ef-check-item">5-star hotels with daily breakfast</div>
+        <div class="ef-check-item">Return flights (Sydney / Melbourne / Brisbane / Perth → Bali)</div>
+        <div class="ef-check-item">7 nights 5-star all-inclusive at Ayodya Resort Bali</div>
         <div class="ef-check-item">All private airport transfers</div>
-        <div class="ef-check-item">Kuranda Scenic Railway</div>
-        <div class="ef-check-item">Field of Light dinner at Uluru</div>
-        <div class="ef-check-item">All guided tours &amp; resort activities</div>
+        <div class="ef-check-item">Classic VW Volcano Safari &amp; Hot Spring</div>
+        <div class="ef-check-item">Sunrise Mount Batur guided hike with breakfast</div>
+        <div class="ef-check-item">2hr Balinese spa: massage, scrub &amp; flower bath</div>
+        <div class="ef-check-item">Ubud day trip: rice terraces &amp; temples</div>
       </div>
-      <div class="ef"><span class="ef-k">Price</span><span class="ef-v gold">$2,999 AUD per person</span></div>
+      <div class="ef"><span class="ef-k">Price</span><span class="ef-v gold">$2,565 AUD per person</span></div>
     </div>
   </div>
 </section>
@@ -379,97 +386,97 @@ footer a { color:var(--gold); text-decoration:none; }
 
   <div class="itin-header reveal">
     <div class="section-label">Day by day</div>
-    <h2 class="itin-title">Seven days, <em>two worlds</em></h2>
+    <h2 class="itin-title">Seven days, <em>one island</em></h2>
   </div>
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=85" alt="Cairns tropical coast" loading="lazy" style="object-position:center 45%;" />
+      <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=85" alt="Nusa Dua Bali resort" loading="lazy" style="object-position:center 50%;" />
     </div>
     <div class="day-content">
       <div class="day-number">01</div>
-      <div class="day-meta">Day 1 · 11 May · Cairns</div>
-      <h3 class="day-title">Arrival — Cairns</h3>
-      <p class="day-desc">Fly from your East Coast city direct to Cairns. Your private transfer meets you at arrivals and takes you to your 5-star hotel in the heart of the city. Check in, breathe the tropical air, and let Cairns settle around you. Tonight is yours — the Esplanade, a waterfront dinner, an early night. Tomorrow the reef waits.</p>
-      <div class="day-tags"><span class="day-tag">Private transfer</span><span class="day-tag">5-star hotel</span><span class="day-tag">Breakfast incl.</span></div>
+      <div class="day-meta">Day 1 · 20 Sep · Bali</div>
+      <h3 class="day-title">Arrival — Nusa Dua</h3>
+      <p class="day-desc">Your flight lands at Ngurah Rai International Airport. A private transfer collects you and delivers you directly to Ayodya Resort Bali on the shores of Nusa Dua — one of the island's most exclusive coastal enclaves. Check in, step onto your balcony, and let the warm Balinese air settle around you. The resort, the pool, and a welcome dinner are all waiting.</p>
+      <div class="day-tags"><span class="day-tag">Private transfer</span><span class="day-tag">All-inclusive resort</span><span class="day-tag">Welcome dinner</span></div>
     </div>
   </div>
 
   <div class="day-row flip reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1200&q=85" alt="Great Barrier Reef" loading="lazy" style="object-position:center 50%;" />
+      <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=85" alt="Ayodya Resort pool Nusa Dua" loading="lazy" style="object-position:center 50%;" />
     </div>
     <div class="day-content">
       <div class="day-number">02</div>
-      <div class="day-meta">Day 2 · 12 May · Great Barrier Reef</div>
-      <h3 class="day-title">The Great Barrier Reef</h3>
-      <p class="day-desc">Breakfast at the hotel, then board a reef day cruise out to the outer reef. Snorkel or dive above 2,900 individual reefs, 900 islands, and the most biodiverse marine ecosystem on the planet. Back in Cairns by late afternoon. The night markets, a cold drink, and the sound of the tropics all around you.</p>
-      <div class="day-tags"><span class="day-tag">Reef day cruise</span><span class="day-tag">Snorkel &amp; dive</span><span class="day-tag">Breakfast incl.</span></div>
+      <div class="day-meta">Day 2 · 21 Sep · Nusa Dua</div>
+      <h3 class="day-title">Resort Day — Beach &amp; Pool</h3>
+      <p class="day-desc">A full day at the Ayodya. The resort's private beach, the lagoon pool, morning yoga — take it at whatever pace feels right. Nusa Dua's calm, reef-protected waters make for perfect swimming and paddleboarding. Breakfast, lunch and dinner are all included. This is what a proper first full day looks like: nothing to arrange, nowhere to be.</p>
+      <div class="day-tags"><span class="day-tag">Private beach</span><span class="day-tag">All meals incl.</span><span class="day-tag">Morning yoga</span></div>
     </div>
   </div>
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.pexels.com/photos/29213222/pexels-photo-29213222.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Kuranda Scenic Railway" loading="lazy" style="object-position:center 50%;" />
+      <img src="https://images.pexels.com/photos/2440024/pexels-photo-2440024.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mount Batur VW Safari" loading="lazy" style="object-position:center 50%;" />
     </div>
     <div class="day-content">
       <div class="day-number">03</div>
-      <div class="day-meta">Day 3 · 13 May · Kuranda</div>
-      <h3 class="day-title">The Kuranda Scenic Railway</h3>
-      <p class="day-desc">Transfer to Cairns Railway Station and board the Kuranda Scenic Railway — a journey through ancient rainforest, across the Barron Gorge, past hand-cut tunnels and century-old bridges. Arrive in Kuranda village, perched in the rainforest canopy. Transfer back to Cairns. One of Australia's great rail experiences, unhurried.</p>
-      <div class="day-tags"><span class="day-tag">Scenic Railway incl.</span><span class="day-tag">All transfers incl.</span><span class="day-tag">Breakfast incl.</span></div>
+      <div class="day-meta">Day 3 · 22 Sep · Mount Batur</div>
+      <h3 class="day-title">VW Volcano Safari &amp; Hot Spring</h3>
+      <p class="day-desc">Board a classic vintage Volkswagen jeep and head north to Mount Batur's otherworldly volcanic landscape — black lava fields, a steaming caldera, and jungle village roads. The experience ends at a natural hot spring where geothermal waters rise directly from the volcano below. Back at the resort by late afternoon. A completely different Bali from the beach.</p>
+      <div class="day-tags"><span class="day-tag">VW Volcano Safari incl.</span><span class="day-tag">Natural hot spring</span><span class="day-tag">All transfers incl.</span></div>
     </div>
   </div>
 
   <div class="day-row flip reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=1200&q=85" alt="Uluru" loading="lazy" style="object-position:center 60%;" />
+      <img src="https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ubud rice terraces Bali" loading="lazy" style="object-position:center 50%;" />
     </div>
     <div class="day-content">
       <div class="day-number">04</div>
-      <div class="day-meta">Day 4 · 14 May · Uluru</div>
-      <h3 class="day-title">Cairns → Uluru</h3>
-      <p class="day-desc">Transfer to Cairns Airport. Fly to Ayers Rock Airport. Shuttle to the resort — and your first view of Uluru. There is nothing that prepares you for it. Check into your 4.5-star hotel at Ayers Rock Resort. This evening: a sunset viewing of Uluru, changing colour through ochre to deep violet as the light falls.</p>
-      <div class="day-tags"><span class="day-tag">Flight incl.</span><span class="day-tag">Shuttle incl.</span><span class="day-tag">4.5-star resort</span></div>
+      <div class="day-meta">Day 4 · 23 Sep · Ubud</div>
+      <h3 class="day-title">Ubud — Temples &amp; Rice Terraces</h3>
+      <p class="day-desc">Transfer to Ubud, Bali's cultural heart. A guided morning through the Tegalalang rice terraces, carved in perfect tiers up the hillside. Then Tirta Empul — the sacred water temple where locals have come to purify for a thousand years. Lunch in Ubud's market streets, then back to Nusa Dua before sunset. The island's spiritual centre, seen properly.</p>
+      <div class="day-tags"><span class="day-tag">Tegalalang terraces</span><span class="day-tag">Tirta Empul Temple</span><span class="day-tag">Guided tour incl.</span></div>
     </div>
   </div>
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.pexels.com/photos/27103101/pexels-photo-27103101.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Field of Light Uluru night sky" loading="lazy" style="object-position:center 40%;" />
+      <img src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mount Batur sunrise hike Bali" loading="lazy" style="object-position:center 40%;" />
     </div>
     <div class="day-content">
       <div class="day-number">05</div>
-      <div class="day-meta">Day 5 · 15 May · Uluru</div>
-      <h3 class="day-title">Field of Light Dinner</h3>
-      <p class="day-desc">Breakfast, then a day exploring the walking tracks and cultural sites around Uluru. As the sun begins to fall, transfer to Bruce Munro's Field of Light — 50,000 slender stems tipped with frosted glass spheres glowing across the desert floor. Dinner is served under an open sky with Uluru lit by the last of the day's light.</p>
-      <div class="day-tags"><span class="day-tag">Field of Light incl.</span><span class="day-tag">Dinner incl.</span><span class="day-tag">Uluru views</span></div>
+      <div class="day-meta">Day 5 · 24 Sep · Mount Batur</div>
+      <h3 class="day-title">Sunrise Hike — Mount Batur</h3>
+      <p class="day-desc">A 2:30am departure. You reach the summit of Mount Batur as dawn breaks across the island — 360-degree views over the caldera, Lake Batur far below, Mount Agung on the horizon. Breakfast is served at the top, with the entire island spread out beneath you. Back at the resort by noon. This is the kind of morning you tell people about for years.</p>
+      <div class="day-tags"><span class="day-tag">Summit sunrise</span><span class="day-tag">Breakfast at the top</span><span class="day-tag">Guided hike incl.</span></div>
     </div>
   </div>
 
   <div class="day-row flip reveal">
     <div class="day-photo">
-      <img src="https://images.pexels.com/photos/10015971/pexels-photo-10015971.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Red Centre Australia desert road" loading="lazy" style="object-position:center 50%;" />
+      <img src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Balinese spa flower bath" loading="lazy" style="object-position:center 40%;" />
     </div>
     <div class="day-content">
       <div class="day-number">06</div>
-      <div class="day-meta">Day 6 · 16 May · Uluru</div>
-      <h3 class="day-title">The Red Centre — At Leisure</h3>
-      <p class="day-desc">An early alarm is worth it — Uluru at sunrise is one of those moments you carry for life. Breakfast, then a free day to explore everything Ayers Rock Resort includes: guided cultural walks, the Kata Tjuta Valley of the Winds, dot painting workshops, camel rides at sunset. Or simply: sit, watch, and let the desert do its work.</p>
-      <div class="day-tags"><span class="day-tag">Free activities incl.</span><span class="day-tag">Kata Tjuta</span><span class="day-tag">Sunrise viewing</span></div>
+      <div class="day-meta">Day 6 · 25 Sep · Nusa Dua</div>
+      <h3 class="day-title">Balinese Spa &amp; At Leisure</h3>
+      <p class="day-desc">A day with nowhere to be. Morning by the pool or on the beach. This afternoon: your two-hour Balinese spa treatment — a full luxury massage, aromatic body scrub, and a flower bath. This evening, dinner at Lagoona Restaurant on the beachfront. A last long look at the Indian Ocean before tomorrow.</p>
+      <div class="day-tags"><span class="day-tag">2hr spa incl.</span><span class="day-tag">Flower bath</span><span class="day-tag">Beachfront dinner</span></div>
     </div>
   </div>
 
   <div class="day-row reveal">
     <div class="day-photo">
-      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85" alt="Departure flight" loading="lazy" style="object-position:center 25%; width:100%; height:100%; object-fit:cover;" />
+      <img src="https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Departure flight home" loading="lazy" style="object-position:center 50%;" />
     </div>
     <div class="day-content">
       <div class="day-number">07</div>
-      <div class="day-meta">Day 7 · 17–18 May · Departure</div>
+      <div class="day-meta">Day 7 · 26–27 Sep · Departure</div>
       <h3 class="day-title">Departure — Home</h3>
-      <p class="day-desc">Final breakfast at the resort. Shuttle to Ayers Rock Airport. Flight home to your city. Your WKLY travel pack — a curated PDF with every booking reference, contact number, restaurant recommendation and experience note from the trip — is waiting in your inbox. Next Monday, we find something new.</p>
-      <div class="day-tags"><span class="day-tag">Shuttle incl.</span><span class="day-tag">Return flight incl.</span><span class="day-tag">WKLY travel pack</span></div>
+      <p class="day-desc">Final breakfast at the resort. Private transfer to Ngurah Rai Airport. Your flight home carries you back to Sydney, Melbourne, Brisbane or Perth. Your WKLY travel pack — every reference, every number, every experience note from the week — arrives in your inbox. Next Monday, we find something new.</p>
+      <div class="day-tags"><span class="day-tag">Private transfer</span><span class="day-tag">Return flight incl.</span><span class="day-tag">WKLY travel pack</span></div>
     </div>
   </div>
 
@@ -480,8 +487,8 @@ footer a { color:var(--gold); text-decoration:none; }
   <div class="bk-cta-inner reveal">
     <div class="bk-cta-left">
       <div class="bk-cta-badge">Ready to book</div>
-      <h2 class="bk-cta-title">Episode 01 · Departure <em>11 May 2026</em></h2>
-      <p class="bk-cta-sub">Flights, hotels, transfers, tours — everything arranged. One price, no extras. Booking closes when the last spot goes.</p>
+      <h2 class="bk-cta-title">Episode 02 · Departure <em>20 Sep 2026</em></h2>
+      <p class="bk-cta-sub">Flights, 7 nights all-inclusive, transfers, volcano safari, spa — everything arranged. One price, no extras. Booking closes when the last spot goes.</p>
     </div>
     <div class="bk-cta-right">
       <div class="bk-countdown">
@@ -491,7 +498,7 @@ footer a { color:var(--gold); text-decoration:none; }
         <div class="bkcd-item"><span class="bkcd-n" id="bk-secs">--</span><span class="bkcd-l">Sec</span></div>
       </div>
       <div class="bk-closes">Until departure</div>
-      <div class="bk-cta-price">$2,999 <span>AUD</span></div>
+      <div class="bk-cta-price">$2,565 <span>AUD</span></div>
       <div class="bk-cta-per">per person · all inclusive</div>
       <a href="book.html" class="btn-bk-cta">Proceed to booking form →</a>
     </div>
@@ -508,11 +515,11 @@ footer a { color:var(--gold); text-decoration:none; }
     </div>
     <div class="past-grid reveal">
       <div class="past-card">
-        <img class="past-card-img" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80" alt="" />
+        <img class="past-card-img" src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=80" alt="Uluru" />
         <div class="past-card-body">
-          <div class="past-ep">Coming Soon</div>
-          <div class="past-name">Episode 02</div>
-          <div class="past-meta">More extraordinary finds dropping weekly</div>
+          <div class="past-ep">Ep 01 · 11–18 May 2026</div>
+          <div class="past-name">Reef &amp; Red Sands</div>
+          <div class="past-meta">Cairns · Great Barrier Reef · Uluru · Sold out</div>
         </div>
       </div>
       <div class="past-card">
@@ -524,7 +531,7 @@ footer a { color:var(--gold); text-decoration:none; }
         </div>
       </div>
       <div class="past-card">
-        <img class="past-card-img" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80" alt="" />
+        <img class="past-card-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80" alt="" />
         <div class="past-card-body">
           <div class="past-ep">Coming Soon</div>
           <div class="past-name">Episode 04</div>
@@ -569,12 +576,12 @@ window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scr
     slides[cur].classList.remove('active');
     cur = (cur + 1) % slides.length;
     slides[cur].classList.add('active');
-  }, 4500);
+  }, 2800);
 })();
 
 /* ── DEPARTURE COUNTDOWN ── */
 (function() {
-  const target = new Date('2026-05-11T00:00:00+10:00');
+  const target = new Date('2026-09-20T00:00:00+08:00');
   const pad = n => String(n).padStart(2,'0');
   function tick() {
     const diff = target - new Date();
