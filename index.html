@@ -141,7 +141,7 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 /* ─── EPISODE INTRO ───────────────────────────────── */
 .episode-intro {
   background:var(--cream2);
-  padding:72px 80px;
+  padding:48px 80px;
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
 }
@@ -168,17 +168,17 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .ei-exp { display:flex; align-items:center; gap:10px; font-size:12px; font-weight:500; color:var(--ink); }
 .ei-exp-icon { font-size:15px; }
 .ei-exp-name { border-bottom:1px solid rgba(184,146,74,.3); padding-bottom:2px; }
-.ei-facts { display:flex; flex-direction:column; gap:0; border:1px solid var(--border); border-radius:4px; overflow:hidden; background:var(--cream); }
-.ef { display:flex; justify-content:space-between; align-items:center; padding:14px 22px; border-bottom:1px solid var(--border); }
+.ei-facts { display:flex; flex-direction:column; gap:0; border:1px solid rgba(184,146,74,.25); border-radius:6px; overflow:hidden; background:var(--cream); box-shadow:0 8px 32px rgba(28,22,18,.07); }
+.ef { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; border-bottom:1px solid var(--border); }
 .ef:last-child { border-bottom:none; }
 .ef-k { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--stone); font-weight:600; }
-.ef-v { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:400; color:var(--ink); text-align:right; }
-.ef-v.gold { color:var(--gold); }
-.ef-checklist { display:flex; flex-direction:column; gap:6px; padding:16px 22px; border-bottom:1px solid var(--border); }
+.ef-v { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:400; color:var(--ink); text-align:right; }
+.ef-v.gold { color:var(--gold); font-size:20px; font-weight:500; }
+.ef-checklist { display:flex; flex-direction:column; gap:0; border-bottom:1px solid var(--border); background:linear-gradient(135deg,rgba(184,146,74,.04) 0%,transparent 60%); }
 .ef-checklist:last-child { border-bottom:none; }
-.ef-checklist-label { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--stone); font-weight:600; margin-bottom:4px; }
-.ef-check-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink); font-family:'Cormorant Garamond',serif; font-weight:400; }
-.ef-check-item::before { content:'✓'; color:var(--gold); font-size:11px; font-family:'Inter',sans-serif; font-weight:700; flex-shrink:0; }
+.ef-checklist-label { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); font-weight:700; padding:12px 24px 6px; }
+.ef-check-item { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--ink); font-family:'Cormorant Garamond',serif; font-weight:400; padding:7px 24px; border-top:1px solid rgba(28,22,18,.05); }
+.ef-check-item::before { content:'✓'; color:var(--gold); font-size:10px; font-family:'Inter',sans-serif; font-weight:800; flex-shrink:0; background:rgba(184,146,74,.12); border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; }
 
 
 /* ─── BOOKING CTA (between episode intro and itinerary) ── */
@@ -387,11 +387,6 @@ footer a { color:var(--gold); text-decoration:none; }
       <div class="ei-ep-badge">Ep 02 · 20–27 Sep 2026</div>
       <h2 class="ei-title">Bali Edition<br><em>Island of the Gods</em></h2>
       <p class="ei-desc">Fly into Bali and transfer directly to <strong style="color:var(--ink);font-weight:500">Ayodya Resort Bali</strong> — a 5-star all-inclusive property on the private shores of Nusa Dua, ranked in the top 1% of resorts in Indonesia. Over seven days: beach mornings, a vintage VW jeep through Mount Batur's volcanic lava fields, sacred rice terraces in Ubud, a sunrise hike to the summit of an active volcano, and a two-hour Balinese spa ritual. Every meal, every drink, every experience included. You arrive with nothing left to arrange.</p>
-      <div class="ei-exp-row">
-        <div class="ei-exp"><div class="ei-exp-icon">🚙</div><div class="ei-exp-name">VW Volcano Safari &amp; Hot Spring</div></div>
-        <div class="ei-exp"><div class="ei-exp-icon">🥾</div><div class="ei-exp-name">Sunrise Hike — Mount Batur</div></div>
-        <div class="ei-exp"><div class="ei-exp-icon">🌸</div><div class="ei-exp-name">2hr Balinese Spa &amp; Flower Bath</div></div>
-      </div>
       <a href="#booking-cta" class="ei-book-link">Proceed to booking form →</a>
     </div>
     <div class="ei-facts">
