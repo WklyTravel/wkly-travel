@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ep 01 — Reef & Red Sands · WKLY.travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;font-weight:300;background:#f5f0e8;color:#1c1612;overflow-x:hidden}
+:root{--cream:#f5f0e8;--cream2:#ede8de;--ink:#1c1612;--gold:#b8924a;--gold2:#d4aa68;--stone:#8a8278;--dim:#6a6258;--border:rgba(28,22,18,.1)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(28,22,18,.97);border-bottom:1px solid rgba(245,240,232,.08);backdrop-filter:blur(12px)}
+.nav-logo{text-decoration:none;font-size:14px;font-weight:700;letter-spacing:5px;color:#f5f0e8;text-transform:uppercase}
+.nav-logo span{color:var(--gold)}
+.back{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,240,232,.45);text-decoration:none;transition:color .2s}
+.back:hover{color:#f5f0e8}
+
+.ep-hero{position:relative;height:72vh;min-height:480px;overflow:hidden}
+.ep-hero-img{width:100%;height:100%;object-fit:cover;object-position:center 60%;filter:brightness(.7)}
+.ep-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,22,18,.85) 0%,rgba(28,22,18,.15) 60%)}
+.ep-hero-content{position:absolute;bottom:0;left:0;right:0;padding:64px 80px;max-width:1200px}
+.sold-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(138,130,120,.25);border:1px solid rgba(138,130,120,.4);padding:5px 14px;border-radius:100px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.6);margin-bottom:16px}
+.ep-badge{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ep-badge::before{content:'';width:28px;height:1px;background:var(--gold)}
+.ep-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,72px);font-weight:300;color:#f5f0e8;line-height:1.0;letter-spacing:-2px;margin-bottom:12px}
+.ep-hero-title em{font-style:italic;color:var(--gold2)}
+.ep-hero-sub{font-size:14px;color:rgba(245,240,232,.55);max-width:500px;line-height:1.7}
+
+.ep-body{max-width:1200px;margin:0 auto;padding:72px 80px;display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:start}
+.ep-desc-label{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.ep-desc-label::after{content:'';width:24px;height:1px;background:var(--gold)}
+.ep-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,42px);font-weight:300;letter-spacing:-1px;color:var(--ink);line-height:1.05;margin-bottom:20px}
+.ep-title em{font-style:italic;color:var(--gold)}
+.ep-desc{font-size:14px;line-height:1.9;color:var(--dim);margin-bottom:28px}
+.ep-itin{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:32px}
+.ep-day{display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid var(--border)}
+.ep-day:last-child{border-bottom:none}
+.ep-day-num{background:var(--cream2);padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid var(--border)}
+.ep-day-n{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:rgba(184,146,74,.25);line-height:1}
+.ep-day-meta{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--stone);text-align:center;margin-top:2px}
+.ep-day-content{padding:14px 20px;background:var(--cream)}
+.ep-day-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:400;color:var(--ink);margin-bottom:3px}
+.ep-day-desc{font-size:11px;line-height:1.65;color:var(--dim)}
+
+.ep-sidebar{position:sticky;top:100px}
+.ep-card{background:var(--cream2);border:1px solid rgba(184,146,74,.2);border-radius:6px;overflow:hidden;box-shadow:0 8px 32px rgba(28,22,18,.06)}
+.ep-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.7) brightness(.85);display:block}
+.ep-card-body{padding:28px}
+.ep-card-ep{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.ep-card-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:4px}
+.ep-card-meta{font-size:11px;color:var(--stone);margin-bottom:20px;line-height:1.6}
+.ep-card-lines{display:flex;flex-direction:column;gap:8px;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:16px}
+.ep-card-line{display:flex;justify-content:space-between;font-size:12px}
+.ep-card-line .k{color:var(--stone)}
+.ep-card-line .v{color:var(--dim);font-weight:500}
+.ep-card-line .v.gold{color:var(--gold)}
+.ep-price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--stone);letter-spacing:-1.5px;line-height:1;text-decoration:line-through;margin-bottom:4px}
+.ep-sold{display:inline-block;background:rgba(138,130,120,.15);border:1px solid rgba(138,130,120,.3);color:var(--stone);font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:8px 20px;border-radius:2px;width:100%;text-align:center;margin-bottom:12px}
+.ep-next{display:block;text-align:center;background:var(--gold);color:var(--ink);padding:15px;font:700 10px/1 'Inter',sans-serif;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s}
+.ep-next:hover{background:var(--gold2)}
+
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .ep-hero-content{padding:40px 24px}
+  .ep-body{grid-template-columns:1fr;padding:48px 24px;gap:48px}
+  .ep-sidebar{position:static}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">WKLY<span>.</span>TRAVEL</a>
+  <a href="index.html" class="back">← Back to current episode</a>
+</nav>
+
+<div class="ep-hero">
+  <img class="ep-hero-img" src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=1800&q=90" alt="Uluru" />
+  <div class="ep-hero-overlay"></div>
+  <div class="ep-hero-content">
+    <div class="sold-badge">● Sold out</div>
+    <div class="ep-badge">Ep 01 · 11–18 May 2026</div>
+    <h1 class="ep-hero-title">Reef &amp; <em>Red Sands</em></h1>
+    <p class="ep-hero-sub">Cairns · Great Barrier Reef · Kuranda Scenic Railway · Uluru · Field of Light</p>
+  </div>
+</div>
+
+<div class="ep-body">
+  <div>
+    <div class="ep-desc-label">The episode</div>
+    <h2 class="ep-title">Two of the world's great<br>natural <em>wonders.</em></h2>
+    <p class="ep-desc">Fly into Cairns, gateway to the largest living structure on Earth. Three days exploring the Great Barrier Reef — by boat, by sea, by wonder. Then board the Kuranda Scenic Railway through ancient rainforest. Fly inland to the Red Centre and your first sight of Uluru, rising 348 metres from the desert floor. Finish with the Field of Light dinner — 50,000 glowing stems across the desert floor under a sky full of stars. Seven days. Nothing left to arrange.</p>
+
+    <div class="ep-itin">
+      <div class="ep-day">
+        <div class="ep-day-num"><div class="ep-day-n">01</div><div class="ep-day-meta">11 May</div></div>
+        <div class="ep-day-content"><div class="ep-day-title">Arrival — Cairns</div><div class="ep-day-desc">Private transfer to 5-star hotel. The Esplanade, tropical air, the reef waiting tomorrow.</div></div>
+      </div>
+      <div class="ep-day">
+        <div class="ep-day-num"><div class="ep-day-n">02</div><div class="ep-day-meta">12 May</div></div>
+        <div class="ep-day-content"><div class="ep-day-title">The Great Barrier Reef</div><div class="ep-day-desc">Full day reef cruise. Snorkel or dive above the world's most biodiverse marine ecosystem.</div></div>
+      </div>
+      <div class="ep-day">
+        <div class="ep-day-num"><div class="ep-day-n">03</div><div class="ep-day-meta">13 May</div></div>
+        <div class="ep-day-content"><div class="ep-day-title">Kuranda Scenic Railway</div><div class="ep-day-desc">Through ancient rainforest, across Barron Gorge, past hand-cut tunnels and century-old bridges.</div></div>
+      </div>
+      <div class="ep-day">
+        <div class="ep-day-num"><div class="ep-day-n">04</div><div class="ep-day-meta">14 May</div></div>
+        <div class="ep-day-content"><div class="ep-day-title">Cairns → Uluru</div><div class="ep-day-desc">Fly to Ayers Rock Airport. First view of Uluru at sunset — ochre to deep violet as the light falls.</div></div>
+      </div>
+      <div class="ep-day">
+        <div class="ep-day-num"><div class="ep-day-n">05</div><div class="ep-day-meta">15 May</div></div>
+        <div class="ep-day-content"><div class="ep-day-title">Field of Light Dinner</div><div class="ep-day-desc">Bruce Munro's 50,000 glowing stems across the desert floor. Dinner served under an open sky.</div></div>
+      </div>
+      <div class="ep-day">
+        <div class="ep-day-num"><div class="ep-day-n">06</div><div class="ep-day-meta">16 May</div></div>
+        <div class="ep-day-content"><div class="ep-day-title">The Red Centre — At Leisure</div><div class="ep-day-desc">Uluru at sunrise. Kata Tjuta, cultural walks, dot painting, camel rides at sunset.</div></div>
+      </div>
+      <div class="ep-day">
+        <div class="ep-day-num"><div class="ep-day-n">07</div><div class="ep-day-meta">17 May</div></div>
+        <div class="ep-day-content"><div class="ep-day-title">Departure — Home</div><div class="ep-day-desc">Final breakfast. Shuttle to Ayers Rock Airport. Flight home. WKLY travel pack in your inbox.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ep-sidebar">
+    <div class="ep-card">
+      <img class="ep-card-img" src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=85" alt="Uluru" />
+      <div class="ep-card-body">
+        <div class="ep-card-ep">Episode 01 · Sold out</div>
+        <div class="ep-card-name">Reef &amp; Red Sands</div>
+        <div class="ep-card-meta">11–18 May 2026 · 7 days<br>Cairns &amp; Uluru · East Coast Australia</div>
+        <div class="ep-card-lines">
+          <div class="ep-card-line"><span class="k">Return flights</span><span class="v gold">Included</span></div>
+          <div class="ep-card-line"><span class="k">5-star hotels</span><span class="v gold">Included</span></div>
+          <div class="ep-card-line"><span class="k">All transfers</span><span class="v gold">Included</span></div>
+          <div class="ep-card-line"><span class="k">Kuranda Railway</span><span class="v gold">Included</span></div>
+          <div class="ep-card-line"><span class="k">Field of Light dinner</span><span class="v gold">Included</span></div>
+        </div>
+        <div class="ep-price">$2,999 AUD</div>
+        <div class="ep-sold">● This episode is sold out</div>
+        <a href="index.html" class="ep-next">See current episode →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="background:var(--ink);padding:28px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(245,240,232,.06)">
+  <a href="index.html" style="font-size:13px;font-weight:700;letter-spacing:5px;color:#f5f0e8;text-transform:uppercase;text-decoration:none">WKLY<span style="color:#b8924a;font-weight:300">.</span>TRAVEL</a>
+  <p style="font-size:11px;color:rgba(245,240,232,.3)">© 2026 WKLY Travel Pty Ltd · <a href="mailto:admin@wkly.travel" style="color:#b8924a;text-decoration:none">admin@wkly.travel</a></p>
+</footer>
+
+</body>
+</html>

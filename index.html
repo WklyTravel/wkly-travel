@@ -261,14 +261,17 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .past-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:28px; }
 .past-title { font-family:'Cormorant Garamond',serif; font-size:clamp(22px,2.2vw,32px); font-weight:300; letter-spacing:-0.5px; color:var(--ink); line-height:1.1; }
 .past-title em { font-style:italic; color:var(--gold); }
-.past-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
-.past-card { background:var(--cream); overflow:hidden; cursor:pointer; }
-.past-card-img { width:100%; aspect-ratio:16/10; object-fit:cover; filter:saturate(.7) brightness(.85); transition:filter .3s, transform .5s; display:block; }
-.past-card:hover .past-card-img { filter:saturate(.9) brightness(.9); }
-.past-card-body { padding:20px 24px 24px; }
+.past-grid { display:grid; grid-template-columns:1fr; gap:0; background:var(--border); border:1px solid var(--border); border-radius:4px; overflow:hidden; max-width:640px; }
+.past-card { background:var(--cream); overflow:hidden; cursor:pointer; text-decoration:none; display:block; }
+.past-card-img { width:100%; aspect-ratio:16/7; object-fit:cover; filter:saturate(.75) brightness(.88); transition:filter .4s, transform .6s; display:block; }
+.past-card:hover .past-card-img { filter:saturate(.95) brightness(.95); transform:scale(1.02); }
+.past-card-body { padding:24px 28px 28px; display:flex; align-items:flex-start; justify-content:space-between; gap:24px; }
+.past-card-body-left { flex:1; }
 .past-ep { font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
-.past-name { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--ink); line-height:1.3; margin-bottom:8px; }
-.past-meta { font-size:11px; color:var(--stone); }
+.past-name { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:400; color:var(--ink); line-height:1.2; margin-bottom:6px; }
+.past-meta { font-size:12px; color:var(--stone); }
+.past-card-cta { flex-shrink:0; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,146,74,.35); padding:10px 20px; border-radius:2px; white-space:nowrap; align-self:center; transition:background .2s, color .2s; }
+.past-card:hover .past-card-cta { background:var(--gold); color:var(--ink); }
 
 /* ─── TRUST ───────────────────────────────────────── */
 .trust-sec { background:var(--cream); padding:48px 80px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
@@ -512,8 +515,8 @@ footer a { color:var(--gold); text-decoration:none; }
 <section class="booking-cta" id="booking-cta">
   <div class="bk-cta-inner reveal">
     <div class="bk-cta-left">
-      <div class="bk-cta-badge">Ready to book</div>
-      <h2 class="bk-cta-title">Episode 02 · Departure <em>20 Sep 2026</em></h2>
+      <div class="bk-cta-badge">Episode 02</div>
+      <h2 class="bk-cta-title">Bali <em>Edition</em></h2>
       <p class="bk-cta-sub">Flights, 7 nights all-inclusive, transfers, volcano safari, spa — everything arranged. One price, no extras. Booking closes when the last spot goes.</p>
     </div>
     <div class="bk-cta-right">
@@ -540,30 +543,17 @@ footer a { color:var(--gold); text-decoration:none; }
       <p style="font-size:13px;color:var(--stone);max-width:280px;text-align:right;line-height:1.7">Every find is unique. Past episodes are shown here for reference — they don't come back.</p>
     </div>
     <div class="past-grid reveal">
-      <div class="past-card">
-        <img class="past-card-img" src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=80" alt="Uluru" />
+      <a class="past-card" href="ep01.html">
+        <img class="past-card-img" src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=1200&q=85" alt="Uluru" />
         <div class="past-card-body">
-          <div class="past-ep">Ep 01 · 11–18 May 2026</div>
-          <div class="past-name">Reef &amp; Red Sands</div>
-          <div class="past-meta">Cairns · Great Barrier Reef · Uluru · Sold out</div>
+          <div class="past-card-body-left">
+            <div class="past-ep">Ep 01 · 11–18 May 2026</div>
+            <div class="past-name">Reef &amp; Red Sands</div>
+            <div class="past-meta">Cairns · Great Barrier Reef · Uluru · Sold out</div>
+          </div>
+          <div class="past-card-cta">View episode →</div>
         </div>
-      </div>
-      <div class="past-card">
-        <img class="past-card-img" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" alt="" />
-        <div class="past-card-body">
-          <div class="past-ep">Coming Soon</div>
-          <div class="past-name">Episode 03</div>
-          <div class="past-meta">Subscribe to be notified first</div>
-        </div>
-      </div>
-      <div class="past-card">
-        <img class="past-card-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80" alt="" />
-        <div class="past-card-body">
-          <div class="past-ep">Coming Soon</div>
-          <div class="past-name">Episode 04</div>
-          <div class="past-meta">One find. Every week. Unrepeatable.</div>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
