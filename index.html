@@ -235,6 +235,12 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .section-label::after { content:''; width:28px; height:1px; background:var(--gold); }
 .itin-title { font-family:'Cormorant Garamond',serif; font-size:clamp(26px,2.8vw,40px); font-weight:300; letter-spacing:-1px; color:var(--ink); line-height:1.05; }
 .itin-title em { font-style:italic; color:var(--gold); }
+/* Typewriter label */
+.type-label { font-size:15px; font-weight:700; letter-spacing:5px; text-transform:uppercase; color:var(--gold); margin-bottom:20px; display:flex; align-items:center; gap:12px; min-height:24px; }
+.type-label::after { content:''; width:28px; height:1px; background:var(--gold); flex-shrink:0; }
+.type-text { white-space:nowrap; }
+.type-cursor { display:inline-block; width:2px; height:1.1em; background:var(--gold); margin-left:2px; vertical-align:middle; animation:cur-blink .75s step-end infinite; }
+@keyframes cur-blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
 .day-row { display:grid; grid-template-columns:1fr 1fr; }
 .day-row.flip { direction:rtl; }
@@ -413,8 +419,8 @@ footer a { color:var(--gold); text-decoration:none; }
 <!-- ══ ITINERARY ══════════════════════════════════════ -->
 <section class="itinerary" id="itinerary">
 
-  <div class="itin-header reveal">
-    <div class="section-label">Day by day</div>
+  <div class="itin-header reveal" id="itin-header">
+    <div class="type-label"><span class="type-text" id="type-text"></span><span class="type-cursor" id="type-cursor"></span></div>
     <h2 class="itin-title">Seven days, <em>one island</em></h2>
   </div>
 
@@ -660,6 +666,46 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
 }, { threshold: 0.07 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── TYPEWRITER ── */
+(function() {
+  const el = document.getElementById('type-text');
+  const cursor = document.getElementById('type-cursor');
+  const header = document.getElementById('itin-header');
+  if (!el || !header) return;
+  const words = ['Day by day'];
+  let started = false;
+  function typeWord(word, cb) {
+    let i = 0;
+    el.textContent = '';
+    function next() {
+      if (i < word.length) { el.textContent += word[i++]; setTimeout(next, 90); }
+      else { setTimeout(cb, 1800); }
+    }
+    next();
+  }
+  function eraseWord(cb) {
+    function del() {
+      if (el.textContent.length > 0) { el.textContent = el.textContent.slice(0,-1); setTimeout(del, 55); }
+      else cb();
+    }
+    del();
+  }
+  function loop(i) {
+    typeWord(words[i % words.length], () => {
+      if (words.length > 1) eraseWord(() => loop(i + 1));
+      // single word — just leave it typed, hide cursor after a moment
+      else setTimeout(() => { if(cursor) cursor.style.display='none'; }, 2000);
+    });
+  }
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !started) {
+      started = true;
+      setTimeout(() => loop(0), 200);
+    }
+  }, { threshold: 0.3 });
+  obs.observe(header);
+})();
 </script>
 
 </body>
