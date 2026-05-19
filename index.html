@@ -87,6 +87,13 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
   margin-bottom:16px;
 }
 .hero h1 em { font-style:italic; color:var(--gold2); font-weight:300; }
+.hero-tagline {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,1.8vw,26px);
+  font-weight:300; font-style:italic;
+  color:var(--gold2); letter-spacing:-.3px;
+  margin-bottom:20px; margin-top:-4px;
+}
 .hero-sub {
   font-size:13.5px; line-height:1.75; color:rgba(245,240,232,.5);
   max-width:400px; margin-bottom:32px; font-weight:300;
@@ -146,7 +153,7 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
   border-bottom:1px solid rgba(184,146,74,.3); padding-bottom:3px;
 }
 .ei-book-link:hover { color:var(--gold2); gap:10px; }
-.ei-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:center; }
+.ei-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
 .ei-ep-badge {
   display:inline-flex; align-items:center; gap:8px;
   font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
@@ -343,7 +350,8 @@ footer a { color:var(--gold); text-decoration:none; }
 
     <div class="hero-left">
       <div class="hero-eyebrow">Episode 01 · Now Live</div>
-      <h1>One unique find.<br><em>Far from ordinary.</em></h1>
+      <h1>One unique find.<br>One week to book.</h1>
+      <p class="hero-tagline">One unforgettable experience.</p>
       <p class="hero-sub">Travel has become predictable. WKLY changes that with one exceptional escape each week, fully packaged and available for 7 days only. Then we move on to the next.</p>
       <div class="hero-actions">
         <a href="#episode" class="btn-primary">See this week's episode ↓</a>
@@ -377,7 +385,7 @@ footer a { color:var(--gold); text-decoration:none; }
   <div class="ei-inner reveal">
     <div>
       <div class="ei-ep-badge">Ep 02 · 20–27 Sep 2026</div>
-      <h2 class="ei-title">The Bali Edit — <em>Island of the Gods</em></h2>
+      <h2 class="ei-title">Bali Edition<br><em>Island of the Gods</em></h2>
       <p class="ei-desc">Fly into Bali and transfer directly to <strong style="color:var(--ink);font-weight:500">Ayodya Resort Bali</strong> — a 5-star all-inclusive property on the private shores of Nusa Dua, ranked in the top 1% of resorts in Indonesia. Over seven days: beach mornings, a vintage VW jeep through Mount Batur's volcanic lava fields, sacred rice terraces in Ubud, a sunrise hike to the summit of an active volcano, and a two-hour Balinese spa ritual. Every meal, every drink, every experience included. You arrive with nothing left to arrange.</p>
       <div class="ei-exp-row">
         <div class="ei-exp"><div class="ei-exp-icon">🚙</div><div class="ei-exp-name">VW Volcano Safari &amp; Hot Spring</div></div>
