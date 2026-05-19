@@ -59,9 +59,9 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 
 /* ─── HERO ────────────────────────────────────────── */
 .hero {
-  background:var(--cream);
+  background:var(--ink);
   padding:0 80px;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid rgba(245,240,232,.08);
 }
 .hero-inner {
   max-width:1280px; margin:0 auto;
@@ -72,10 +72,10 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .hero-left { display:flex; flex-direction:column; }
 .hero-eyebrow {
   display:inline-flex; align-items:center; gap:8px;
-  background:rgba(184,146,74,.1); border:1px solid rgba(184,146,74,.3);
+  background:rgba(184,146,74,.15); border:1px solid rgba(184,146,74,.4);
   padding:5px 13px; border-radius:100px;
   font-size:9px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
-  color:var(--gold); margin-bottom:20px; width:fit-content;
+  color:var(--gold2); margin-bottom:20px; width:fit-content;
 }
 .hero-eyebrow::before { content:''; width:5px; height:5px; background:var(--gold); border-radius:50%; animation:pulse 2s ease infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.5)} }
@@ -83,31 +83,31 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(36px,3.6vw,56px);
   font-weight:400; line-height:1.1;
-  letter-spacing:-1.5px; color:var(--ink);
+  letter-spacing:-1.5px; color:var(--cream);
   margin-bottom:16px;
 }
-.hero h1 em { font-style:italic; color:var(--gold); font-weight:300; }
+.hero h1 em { font-style:italic; color:var(--gold2); font-weight:300; }
 .hero-sub {
-  font-size:13.5px; line-height:1.75; color:var(--dim);
+  font-size:13.5px; line-height:1.75; color:rgba(245,240,232,.5);
   max-width:400px; margin-bottom:32px; font-weight:300;
 }
 .hero-actions { display:flex; align-items:center; gap:20px; }
 .btn-primary {
   display:inline-flex; align-items:center; gap:10px;
-  background:var(--ink); color:var(--cream);
+  background:var(--gold); color:var(--ink);
   font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
   padding:14px 28px; text-decoration:none; border-radius:100px;
   font-family:'Inter',sans-serif;
   transition:background .25s, transform .2s;
 }
-.btn-primary:hover { background:var(--gold); transform:translateY(-1px); }
+.btn-primary:hover { background:var(--gold2); transform:translateY(-1px); }
 .btn-secondary {
   display:inline-flex; align-items:center; gap:6px;
   font-size:10px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--stone); text-decoration:none; font-family:'Inter',sans-serif;
+  color:rgba(245,240,232,.45); text-decoration:none; font-family:'Inter',sans-serif;
   transition:color .2s;
 }
-.btn-secondary:hover { color:var(--ink); }
+.btn-secondary:hover { color:var(--cream); }
 
 /* Hero right — image card */
 .hero-right { display:flex; align-items:center; justify-content:flex-start; }
@@ -156,7 +156,11 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .ei-label { font-size:9px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--stone); margin-bottom:12px; }
 .ei-title { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,3.8vw,56px); font-weight:300; line-height:1.05; letter-spacing:-1.5px; color:var(--ink); margin-bottom:20px; }
 .ei-title em { font-style:italic; color:var(--gold); }
-.ei-desc { font-size:14px; line-height:1.85; color:var(--dim); }
+.ei-desc { font-size:14px; line-height:1.85; color:var(--dim); margin-bottom:20px; }
+.ei-exp-row { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+.ei-exp { display:flex; align-items:center; gap:10px; font-size:12px; font-weight:500; color:var(--ink); }
+.ei-exp-icon { font-size:15px; }
+.ei-exp-name { border-bottom:1px solid rgba(184,146,74,.3); padding-bottom:2px; }
 .ei-facts { display:flex; flex-direction:column; gap:0; border:1px solid var(--border); border-radius:4px; overflow:hidden; background:var(--cream); }
 .ef { display:flex; justify-content:space-between; align-items:center; padding:14px 22px; border-bottom:1px solid var(--border); }
 .ef:last-child { border-bottom:none; }
@@ -259,6 +263,20 @@ nav.stuck { border-bottom-color:var(--border); padding:16px 64px; }
 .past-name { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--ink); line-height:1.3; margin-bottom:8px; }
 .past-meta { font-size:11px; color:var(--stone); }
 
+/* ─── TRUST ───────────────────────────────────────── */
+.trust-sec { background:var(--cream); padding:48px 80px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.trust-inner { max-width:1200px; margin:0 auto; }
+.trust-top { display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:36px; }
+.trust-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(20px,2vw,28px); font-weight:300; color:var(--ink); letter-spacing:-.5px; }
+.trust-headline em { font-style:italic; color:var(--gold); }
+.trust-reg { font-size:11px; color:var(--stone); line-height:1.7; }
+.trust-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+@media(max-width:900px){ .trust-grid { grid-template-columns:repeat(2,1fr); } .trust-sec { padding:40px 24px; } }
+.trust-item { display:flex; flex-direction:column; gap:8px; padding:20px; background:var(--cream2); border-radius:4px; border:1px solid var(--border); }
+.trust-icon { font-size:20px; }
+.trust-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
+.trust-text { font-size:12.5px; line-height:1.65; color:var(--dim); }
+
 /* ─── SUBSCRIBE ───────────────────────────────────── */
 .sub-sec { background:var(--cream2); padding:56px 80px; border-top:1px solid var(--border); display:flex; flex-direction:column; align-items:center; text-align:center; }
 .sub-eyebrow { font-size:9px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:flex; align-items:center; gap:10px; }
@@ -359,8 +377,13 @@ footer a { color:var(--gold); text-decoration:none; }
   <div class="ei-inner reveal">
     <div>
       <div class="ei-ep-badge">Ep 02 · 20–27 Sep 2026</div>
-      <h2 class="ei-title">Bali — <em>Island of the Gods</em></h2>
-      <p class="ei-desc">Fly into Bali and transfer straight to your 5-star all-inclusive resort on the pristine shores of Nusa Dua. Over seven days: beach mornings at one of Indonesia's finest resorts, a vintage VW jeep through Mount Batur's volcanic lava fields, sacred rice terraces and temples in Ubud, a sunrise hike to the summit of an active volcano, and a two-hour Balinese spa ritual. Everything is arranged. Every meal included. You arrive with nothing to do but show up.</p>
+      <h2 class="ei-title">The Bali Edit — <em>Island of the Gods</em></h2>
+      <p class="ei-desc">Fly into Bali and transfer directly to <strong style="color:var(--ink);font-weight:500">Ayodya Resort Bali</strong> — a 5-star all-inclusive property on the private shores of Nusa Dua, ranked in the top 1% of resorts in Indonesia. Over seven days: beach mornings, a vintage VW jeep through Mount Batur's volcanic lava fields, sacred rice terraces in Ubud, a sunrise hike to the summit of an active volcano, and a two-hour Balinese spa ritual. Every meal, every drink, every experience included. You arrive with nothing left to arrange.</p>
+      <div class="ei-exp-row">
+        <div class="ei-exp"><div class="ei-exp-icon">🚙</div><div class="ei-exp-name">VW Volcano Safari &amp; Hot Spring</div></div>
+        <div class="ei-exp"><div class="ei-exp-icon">🥾</div><div class="ei-exp-name">Sunrise Hike — Mount Batur</div></div>
+        <div class="ei-exp"><div class="ei-exp-icon">🌸</div><div class="ei-exp-name">2hr Balinese Spa &amp; Flower Bath</div></div>
+      </div>
       <a href="#booking-cta" class="ei-book-link">Proceed to booking form →</a>
     </div>
     <div class="ei-facts">
@@ -375,7 +398,7 @@ footer a { color:var(--gold); text-decoration:none; }
         <div class="ef-check-item">2hr Balinese spa: massage, scrub &amp; flower bath</div>
         <div class="ef-check-item">Ubud day trip: rice terraces &amp; temples</div>
       </div>
-      <div class="ef"><span class="ef-k">Price</span><span class="ef-v gold">$2,565 AUD per person</span></div>
+      <div class="ef"><span class="ef-k">Price</span><span class="ef-v gold">$2,999 AUD per person</span></div>
     </div>
   </div>
 </section>
@@ -498,7 +521,7 @@ footer a { color:var(--gold); text-decoration:none; }
         <div class="bkcd-item"><span class="bkcd-n" id="bk-secs">--</span><span class="bkcd-l">Sec</span></div>
       </div>
       <div class="bk-closes">Until departure</div>
-      <div class="bk-cta-price">$2,565 <span>AUD</span></div>
+      <div class="bk-cta-price">$2,999 <span>AUD</span></div>
       <div class="bk-cta-per">per person · all inclusive</div>
       <a href="book.html" class="btn-bk-cta">Proceed to booking form →</a>
     </div>
@@ -537,6 +560,42 @@ footer a { color:var(--gold); text-decoration:none; }
           <div class="past-name">Episode 04</div>
           <div class="past-meta">One find. Every week. Unrepeatable.</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST ══════════════════════════════════════════ -->
+<section class="trust-sec">
+  <div class="trust-inner">
+    <div class="trust-top">
+      <h2 class="trust-headline">Booked with confidence.<br><em>Every time.</em></h2>
+      <div class="trust-reg">
+        WKLY.travel is operated by WKLY Travel Pty Ltd · ACN 123 456 789<br>
+        Licensed Australian travel company · ATAS Accredited · Client Trust Account held<br>
+        All bookings governed by Australian Consumer Law
+      </div>
+    </div>
+    <div class="trust-grid reveal">
+      <div class="trust-item">
+        <div class="trust-icon">🏦</div>
+        <div class="trust-label">Client Trust Account</div>
+        <div class="trust-text">Your payment is held in a dedicated client trust account, fully separated from company operating funds, until travel is completed.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🇦🇺</div>
+        <div class="trust-label">Australian Law</div>
+        <div class="trust-text">WKLY.travel operates under Australian Consumer Law. All bookings carry the full protections of ACL including consumer guarantees.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✈️</div>
+        <div class="trust-label">15+ Years in Travel</div>
+        <div class="trust-text">Our team brings over 15 years of travel industry experience across wholesale, retail, and direct-to-consumer divisions.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-label">Secure Payments</div>
+        <div class="trust-text">All payments processed via Stripe, PCI DSS compliant. SSL encrypted end-to-end. We never store card details.</div>
       </div>
     </div>
   </div>

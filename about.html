@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — WKLY.travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;font-weight:300;background:#f5f0e8;color:#1c1612;overflow-x:hidden}
+:root{
+  --cream:#f5f0e8;--cream2:#ede8de;--cream3:#e4ddd2;
+  --ink:#1c1612;--gold:#b8924a;--gold2:#d4aa68;
+  --stone:#8a8278;--dim:#6a6258;--border:rgba(28,22,18,.1);
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:24px 64px;background:rgba(28,22,18,.95);border-bottom:1px solid rgba(245,240,232,.06);backdrop-filter:blur(12px);transition:padding .3s}
+.nav-logo{text-decoration:none;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;letter-spacing:5px;color:#f5f0e8;text-transform:uppercase}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;color:rgba(245,240,232,.45);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#f5f0e8}
+.nav-subscribe{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:11px 24px;text-decoration:none;transition:background .2s,transform .2s;border-radius:2px}
+.nav-subscribe:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* HERO VIDEO */
+.about-hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;background:var(--ink)}
+.hero-video-wrap{position:absolute;inset:0;z-index:0}
+.hero-video-wrap iframe{width:100%;height:100%;border:none;pointer-events:none;transform:scale(1.15)}
+.hero-bg-img{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1800&q=90');background-size:cover;background-position:center;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,22,18,.85) 0%,rgba(28,22,18,.4) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:1200px;width:100%;margin:0 auto;padding:0 80px}
+.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5vw,76px);font-weight:300;color:#f5f0e8;line-height:1.0;letter-spacing:-2px;margin-bottom:24px}
+.hero-h1 em{font-style:italic;color:var(--gold2)}
+.hero-sub{font-size:15px;line-height:1.8;color:rgba(245,240,232,.6);max-width:520px;font-weight:300}
+
+/* SECTIONS */
+.about-sec{padding:96px 80px;max-width:1200px;margin:0 auto}
+.about-wrap{background:var(--cream)}
+.about-wrap-alt{background:var(--cream2)}
+.about-wrap-dark{background:var(--ink)}
+.sec-label{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.sec-label::after{content:'';width:28px;height:1px;background:var(--gold)}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,3.5vw,52px);font-weight:300;letter-spacing:-1.5px;color:var(--ink);line-height:1.05;margin-bottom:24px}
+.story-h2 em{font-style:italic;color:var(--gold)}
+.story-body p{font-size:14px;line-height:1.9;color:var(--dim);margin-bottom:16px}
+.story-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;filter:saturate(.85)}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.stat-item{background:var(--cream2);padding:36px 28px;display:flex;flex-direction:column;gap:6px}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--gold);letter-spacing:-2px;line-height:1}
+.stat-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--stone)}
+.stat-desc{font-size:12px;color:var(--dim);line-height:1.6;margin-top:4px}
+
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:48px}
+.how-item{display:flex;flex-direction:column;gap:12px}
+.how-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(184,146,74,.2);line-height:1;letter-spacing:-2px}
+.how-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--ink);letter-spacing:-.2px}
+.how-desc{font-size:13px;line-height:1.8;color:var(--dim)}
+
+/* CREDENTIALS */
+.cred-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+.cred-item{background:rgba(245,240,232,.05);border:1px solid rgba(245,240,232,.1);border-radius:4px;padding:28px 32px}
+.cred-icon{font-size:24px;margin-bottom:12px}
+.cred-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cred-text{font-size:13px;line-height:1.75;color:rgba(245,240,232,.55)}
+.cred-reg{margin-top:40px;padding-top:32px;border-top:1px solid rgba(245,240,232,.08);font-size:11px;color:rgba(245,240,232,.3);line-height:1.9;text-align:center}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav,.hero-content,.about-sec{padding-left:32px;padding-right:32px}
+  nav{padding-top:18px;padding-bottom:18px}
+  .story-grid{grid-template-columns:1fr;gap:40px}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .how-grid,.cred-grid{grid-template-columns:1fr}
+  .about-sec{padding-top:64px;padding-bottom:64px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">WKLY<span>.</span>TRAVEL</a>
+  <ul class="nav-links">
+    <li><a href="index.html#past">Episodes</a></li>
+    <li><a href="index.html" style="color:rgba(245,240,232,.8)">Current Find</a></li>
+  </ul>
+  <a href="index.html#subscribe" class="nav-subscribe">Subscribe</a>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">About WKLY.travel</div>
+    <h1 class="hero-h1">A millennium of<br>travel experience.<br><em>One find a week.</em></h1>
+    <p class="hero-sub">We've spent decades inside the travel industry — wholesale, retail, corporate, luxury. We know what a genuinely exceptional trip looks like. WKLY exists to give it to you, once a week, fully arranged.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<div class="about-wrap">
+<section class="about-sec">
+  <div class="story-grid">
+    <div class="story-body">
+      <div class="sec-label">Our story</div>
+      <h2 class="story-h2">Built by people who<br>know <em>travel</em></h2>
+      <p>WKLY.travel was founded on a simple frustration: the travel industry has been selling the same packages for decades. Same destinations, same hotels, same tours — dressed up with new photography and called something different.</p>
+      <p>Our team has spent over fifteen years working across every part of the travel industry — wholesale distribution, trade partnerships, corporate travel management, and direct luxury bookings. We've built relationships with the properties and operators that actually matter. We know where the value is, and where it isn't.</p>
+      <p>WKLY is our answer. One carefully curated escape, once a week, arranged to a level that most travel agents can't match. Available for seven days only. Then we move on. No repeats, no catalogue, no predictable itineraries.</p>
+    </div>
+    <img class="story-img" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&q=85" alt="Travel" />
+  </div>
+</section>
+</div>
+
+<!-- STATS -->
+<div class="about-wrap-alt" style="padding:0 80px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-n">15+</div>
+        <div class="stat-label">Years in Travel</div>
+        <div class="stat-desc">Our team has operated across wholesale, retail, corporate, and luxury travel since before most apps existed.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-n">1,000+</div>
+        <div class="stat-label">Years Combined</div>
+        <div class="stat-desc">Our collective team brings over a millennium of combined travel industry experience to every single find.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-n">1</div>
+        <div class="stat-label">Find per week</div>
+        <div class="stat-desc">We release one exceptional escape per week. No catalogue. No repeats. If you miss it, it's gone.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-n">3</div>
+        <div class="stat-label">Industry Divisions</div>
+        <div class="stat-desc">Trade wholesale, corporate travel management, and direct consumer luxury — we operate across all three.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="about-wrap">
+<section class="about-sec">
+  <div class="sec-label">How it works</div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);font-weight:300;letter-spacing:-1px;color:var(--ink);line-height:1.05">Simple by design.<br><em>Exceptional by standard.</em></h2>
+  <div class="how-grid">
+    <div class="how-item">
+      <div class="how-num">01</div>
+      <div class="how-title">We find it</div>
+      <div class="how-desc">Every Monday we release one extraordinary escape. Our team sources it, negotiates it, and packages it to a level you couldn't replicate booking yourself — at a price that reflects our wholesale buying power.</div>
+    </div>
+    <div class="how-item">
+      <div class="how-num">02</div>
+      <div class="how-title">You book it</div>
+      <div class="how-desc">The episode is live for seven days only. Select your guests, fill in your details, and proceed to secure Stripe payment. Booking confirmed instantly. Your spot is held.</div>
+    </div>
+    <div class="how-item">
+      <div class="how-num">03</div>
+      <div class="how-title">We arrange everything</div>
+      <div class="how-desc">Flights, transfers, hotel, every experience — all confirmed and coordinated by our team. A full WKLY travel pack with every reference, number, and note is in your inbox before departure.</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- TRUST & CREDENTIALS -->
+<div class="about-wrap-dark">
+<section class="about-sec">
+  <div class="sec-label" style="color:var(--gold)">Trust &amp; credentials</div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);font-weight:300;letter-spacing:-1px;color:#f5f0e8;line-height:1.05;margin-bottom:0">Book with complete<br><em style="color:var(--gold2)">confidence.</em></h2>
+  <div class="cred-grid">
+    <div class="cred-item">
+      <div class="cred-icon">🏦</div>
+      <div class="cred-title">Client Trust Account</div>
+      <div class="cred-text">Your payment is held in a dedicated client trust account — entirely separate from WKLY operating funds. Funds are only released once your travel services have been delivered and confirmed.</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">🇦🇺</div>
+      <div class="cred-title">Australian Company · ACN 123 456 789</div>
+      <div class="cred-text">WKLY Travel Pty Ltd is a registered Australian company. All bookings are governed by Australian Consumer Law, which gives you strong consumer rights and protections as standard.</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">✈️</div>
+      <div class="cred-title">ATAS Accredited</div>
+      <div class="cred-text">WKLY.travel is accredited under the Australian Travel Accreditation Scheme (ATAS) — the travel industry's mark of professional and ethical standards.</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">🔒</div>
+      <div class="cred-title">Stripe Payments · PCI DSS Compliant</div>
+      <div class="cred-text">All payments are processed by Stripe — PCI DSS Level 1 certified, SSL encrypted end-to-end. We never store your card details. Your payment data never touches our servers.</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">🌐</div>
+      <div class="cred-title">Industry Relationships</div>
+      <div class="cred-text">Over 15 years of direct relationships with hotels, airlines, ground operators and wholesalers across Australia, Asia-Pacific, and beyond. We don't use OTAs — we deal direct.</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">📋</div>
+      <div class="cred-title">Full Disclosure</div>
+      <div class="cred-text">What's on the page is what you get. No hidden fees, no surprise extras, no bait-and-switch. One price, all-inclusive. If something changes, we tell you immediately and provide full alternatives.</div>
+    </div>
+  </div>
+  <div class="cred-reg">
+    WKLY Travel Pty Ltd · ACN 123 456 789 · ABN placeholder · ATAS Accredited<br>
+    Registered in New South Wales, Australia · All bookings subject to Australian Consumer Law<br>
+    <a href="mailto:admin@wkly.travel" style="color:var(--gold);text-decoration:none">admin@wkly.travel</a>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:var(--ink);border-top:1px solid rgba(245,240,232,.06);padding:32px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+  <a href="index.html" style="font-size:13px;font-weight:700;letter-spacing:5px;color:#f5f0e8;text-transform:uppercase;text-decoration:none">WKLY<span style="color:#b8924a;font-weight:300">.</span>TRAVEL</a>
+  <p style="font-size:11px;color:rgba(245,240,232,.3)">© 2026 WKLY Travel Pty Ltd · <a href="mailto:admin@wkly.travel" style="color:#b8924a;text-decoration:none">admin@wkly.travel</a></p>
+  <p style="font-size:11px;color:rgba(245,240,232,.3)">One find. Every week. Unrepeatable.</p>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => nav.style.padding = window.scrollY > 60 ? '16px 64px' : '24px 64px');
+</script>
+</body>
+</html>

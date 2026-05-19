@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Episode 01 — WKLY.travel</title>
+<title>Book — The Bali Edit · WKLY.travel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,19 +24,18 @@
 html{scroll-behavior:smooth}
 :root{--cream:#f5f0e8;--cream2:#ede8de;--ink:#1c1612;--gold:#b8924a;--gold2:#d4aa68;--stone:#8a8278;--dim:#6a6258;--border:rgba(28,22,18,.1)}
 body{font-family:'Inter',sans-serif;font-weight:300;background:var(--cream);color:var(--ink)}
-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(245,240,232,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
-.nav-logo{text-decoration:none}
-.nav-logo-main{font-size:14px;font-weight:700;letter-spacing:5px;color:var(--ink);text-transform:uppercase}
-.nav-logo-main span{color:var(--gold);font-weight:300}
-.back{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .2s}
-.back:hover{color:var(--ink)}
-.sumbar{background:var(--ink);padding:16px 64px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(28,22,18,.97);border-bottom:1px solid rgba(245,240,232,.08);backdrop-filter:blur(12px)}
+.nav-logo{text-decoration:none;font-size:14px;font-weight:700;letter-spacing:5px;color:#f5f0e8;text-transform:uppercase}
+.nav-logo span{color:var(--gold);font-weight:300}
+.back{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,240,232,.4);text-decoration:none;transition:color .2s}
+.back:hover{color:#f5f0e8}
+.sumbar{background:var(--ink);padding:16px 64px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid rgba(245,240,232,.06)}
 .sb-ep{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
-.sb-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#fff}
-.sb-meta{font-size:11px;color:rgba(245,240,232,.4);margin-top:2px}
+.sb-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff;letter-spacing:-.3px}
+.sb-meta{font-size:11px;color:rgba(245,240,232,.35);margin-top:2px}
 .sb-tag{font-size:10px;color:rgba(245,240,232,.45);display:flex;align-items:center;gap:6px}
-.sb-tag::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%}
-.sb-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.sb-tag::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.sb-right{display:flex;flex-wrap:wrap;gap:16px}
 .page{max-width:1160px;margin:0 auto;padding:64px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:start}
 .fc-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--ink);letter-spacing:-1px;margin-bottom:8px;line-height:1.1}
 .fc-title em{font-style:italic;color:var(--gold)}
@@ -69,48 +68,52 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:20px 6
 .oc-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px}
 .oct-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--stone)}
 .oct-amt{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--gold);letter-spacing:-1.5px;line-height:1}
-.btn-pay{display:block;width:100%;text-align:center;background:var(--ink);color:var(--cream);padding:18px;font:700 11px/1 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s;text-decoration:none;border-radius:2px;font-family:'Inter',sans-serif}
-.btn-pay:hover{background:var(--gold);transform:translateY(-1px);box-shadow:0 12px 40px rgba(184,146,74,.2)}
+.btn-pay{display:block;width:100%;text-align:center;background:var(--gold);color:var(--ink);padding:18px;font:700 11px/1 'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s;text-decoration:none;border-radius:2px;font-family:'Inter',sans-serif}
+.btn-pay:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 12px 40px rgba(184,146,74,.2)}
 .btn-pay:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
 .secure-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;font-size:11px;color:var(--stone)}
+.trust-strip{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:16px;margin-top:20px;display:flex;flex-direction:column;gap:6px}
+.trust-strip-item{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--dim)}
+.trust-strip-item::before{content:'✓';color:var(--gold);font-weight:700;font-size:10px;flex-shrink:0}
 @media(max-width:900px){nav,.sumbar{padding:16px 24px}.page{grid-template-columns:1fr;gap:48px;padding:40px 24px}.order-card{position:static}.form-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo"><div class="nav-logo-main">WKLY<span>.</span>travel</div></a>
+  <a href="index.html" class="nav-logo">WKLY<span>.</span>TRAVEL</a>
   <a href="index.html" class="back">← Back to Episode</a>
 </nav>
 
 <div class="sumbar">
   <div>
-    <div class="sb-ep">Episode 01</div>
-    <div class="sb-name">Reef &amp; Red Sands</div>
-    <div class="sb-meta">24 November 2025 · 7 days · Cairns &amp; Uluru</div>
+    <div class="sb-ep">Episode 02 · The Bali Edit</div>
+    <div class="sb-name">Island of the Gods</div>
+    <div class="sb-meta">20–27 Sep 2026 · 7 days · Ayodya Resort Bali, Nusa Dua · All inclusive</div>
   </div>
   <div class="sb-right">
-    <span class="sb-tag">All flights incl.</span>
-    <span class="sb-tag">7 nights accommodation</span>
-    <span class="sb-tag">Field of Light dinner</span>
-    <span class="sb-tag">Kuranda Railway</span>
+    <span class="sb-tag">Return flights incl.</span>
+    <span class="sb-tag">7 nights all-inclusive</span>
+    <span class="sb-tag">VW Volcano Safari</span>
+    <span class="sb-tag">Sunrise Mount Batur hike</span>
+    <span class="sb-tag">2hr Balinese spa</span>
   </div>
 </div>
 
 <div class="page">
   <div>
     <h1 class="fc-title">Your <em>details</em></h1>
-    <p class="fc-sub">Fill in your details, review the order summary, then proceed to secure payment via Stripe. Takes under 2 minutes.</p>
+    <p class="fc-sub">Fill in your details below, review the order summary, then proceed to secure payment via Stripe. Takes under 2 minutes. You'll receive a booking confirmation email immediately.</p>
     <form id="bookForm">
       <div class="form-sec">
         <div class="form-sec-title">Lead Traveller</div>
         <div class="form-row">
-          <div class="fg"><label>First Name *</label><input type="text" id="fname" required /></div>
-          <div class="fg"><label>Last Name *</label><input type="text" id="lname" required /></div>
+          <div class="fg"><label>First Name *</label><input type="text" id="fname" required placeholder="Jane" /></div>
+          <div class="fg"><label>Last Name *</label><input type="text" id="lname" required placeholder="Smith" /></div>
         </div>
         <div class="form-row">
-          <div class="fg"><label>Email Address *</label><input type="email" id="email" required /></div>
-          <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="phone" required /></div>
+          <div class="fg"><label>Email Address *</label><input type="email" id="email" required placeholder="jane@example.com" /></div>
+          <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="phone" required placeholder="+61 4XX XXX XXX" /></div>
         </div>
       </div>
       <div class="form-sec">
@@ -140,16 +143,26 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:20px 6
             </select>
           </div>
         </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Passport Full Name *</label>
+            <input type="text" id="passport_name" required placeholder="As it appears on your passport" />
+          </div>
+          <div class="fg">
+            <label>Date of Birth *</label>
+            <input type="date" id="dob" required />
+          </div>
+        </div>
         <div class="fg fg-full">
           <label>Special requests or dietary requirements <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:10px">(optional)</span></label>
-          <textarea id="notes" placeholder="Dietary needs, allergies, accessibility, celebrations..."></textarea>
+          <textarea id="notes" placeholder="Dietary needs, allergies, accessibility, celebrations, room preferences..."></textarea>
         </div>
       </div>
       <div class="form-sec">
         <div class="form-sec-title">Acknowledgement</div>
         <div class="policy-row">
           <input type="checkbox" id="terms" required />
-          <label for="terms">I understand this booking is non-refundable within 30 days of departure, and that this episode is exactly as described — no substitutions or customisations. I agree to the <a href="#" style="color:var(--gold)">Terms &amp; Conditions</a>.</label>
+          <label for="terms">I understand this booking is subject to the WKLY.travel <a href="#" style="color:var(--gold)">Terms &amp; Conditions</a>. I confirm all traveller details are accurate. I understand deposits are non-refundable within 30 days of departure. This trip is as described — no substitutions.</label>
         </div>
       </div>
     </form>
@@ -158,9 +171,9 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:20px 6
   <div>
     <div class="order-card">
       <div class="oc-label">Order Summary</div>
-      <img class="oc-img" src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=85" alt="Uluru" />
-      <div class="oc-name">Reef &amp; Red Sands</div>
-      <div class="oc-meta">Episode 01 · 24 Nov 2025 · 7 days<br>Cairns &amp; Uluru · All inclusive</div>
+      <img class="oc-img" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=85" alt="Bali" />
+      <div class="oc-name">The Bali Edit</div>
+      <div class="oc-meta">Ep 02 · 20–27 Sep 2026 · 7 days<br>Ayodya Resort Bali · Nusa Dua · All inclusive</div>
       <div class="gs-label">Guests</div>
       <div class="gs-controls">
         <button class="gs-btn" type="button" onclick="changeGuests(-1)">−</button>
@@ -170,22 +183,29 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:20px 6
       <div class="oc-lines">
         <div class="oc-line"><span class="oc-k">Price per person</span><span class="oc-v">$2,999 AUD</span></div>
         <div class="oc-line"><span class="oc-k">Guests</span><span class="oc-v" id="oc-g">1 guest</span></div>
-        <div class="oc-line"><span class="oc-k">All flights</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
-        <div class="oc-line"><span class="oc-k">7 nights hotel</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
-        <div class="oc-line"><span class="oc-k">All experiences</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
+        <div class="oc-line"><span class="oc-k">Return flights</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
+        <div class="oc-line"><span class="oc-k">7 nights all-inclusive</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
+        <div class="oc-line"><span class="oc-k">VW Volcano Safari</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
+        <div class="oc-line"><span class="oc-k">Sunrise Mt Batur hike</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
+        <div class="oc-line"><span class="oc-k">2hr Balinese spa</span><span class="oc-v" style="color:var(--gold)">Included</span></div>
       </div>
       <div class="oc-total">
         <span class="oct-lbl">Total AUD</span>
         <span class="oct-amt" id="oc-total">$2,999</span>
       </div>
-      <button class="btn-pay" id="payBtn" type="button" onclick="proceedToPayment()">Proceed to Payment →</button>
-      <div class="secure-row">🔒 Powered by Stripe · SSL secured</div>
+      <button class="btn-pay" id="payBtn" type="button" onclick="proceedToPayment()">Proceed to Secure Payment →</button>
+      <div class="secure-row">🔒 Powered by Stripe · SSL encrypted</div>
+      <div class="trust-strip">
+        <div class="trust-strip-item">Client trust account — funds held securely</div>
+        <div class="trust-strip-item">Licensed Australian company · ACN 123 456 789</div>
+        <div class="trust-strip-item">Governed by Australian Consumer Law</div>
+      </div>
     </div>
   </div>
 </div>
 
 <footer style="background:var(--ink);padding:24px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-  <a href="index.html" style="font-size:13px;font-weight:700;letter-spacing:5px;color:#f5f0e8;text-transform:uppercase;text-decoration:none">WKLY<span style="color:#b8924a;font-weight:300">.</span>travel</a>
+  <a href="index.html" style="font-size:13px;font-weight:700;letter-spacing:5px;color:#f5f0e8;text-transform:uppercase;text-decoration:none">WKLY<span style="color:#b8924a;font-weight:300">.</span>TRAVEL</a>
   <p style="font-size:11px;color:rgba(245,240,232,.3)">Questions? <a href="mailto:admin@wkly.travel" style="color:#b8924a;text-decoration:none">admin@wkly.travel</a></p>
 </footer>
 
@@ -205,11 +225,11 @@ function updateDisplay() {
   document.getElementById('oc-total').textContent = '$' + (guestCount * BASE_PRICE).toLocaleString('en-AU');
 }
 function validate() {
-  if (!document.getElementById('fname').value.trim() ||
-      !document.getElementById('lname').value.trim() ||
-      !document.getElementById('email').value.trim() ||
-      !document.getElementById('phone').value.trim()) {
-    alert('Please fill in all required fields.'); return false;
+  const fields = ['fname','lname','email','phone','passport_name','dob','hub'];
+  for (const f of fields) {
+    if (!document.getElementById(f).value.trim()) {
+      alert('Please fill in all required fields.'); return false;
+    }
   }
   if (!document.getElementById('terms').checked) {
     alert('Please agree to the Terms & Conditions.'); return false;
@@ -225,10 +245,13 @@ async function proceedToPayment() {
     lastName: document.getElementById('lname').value.trim(),
     email: document.getElementById('email').value.trim(),
     phone: document.getElementById('phone').value.trim(),
-    guests: guestCount, hub: document.getElementById('hub').value,
+    passportName: document.getElementById('passport_name').value.trim(),
+    dateOfBirth: document.getElementById('dob').value,
+    guests: guestCount,
+    hub: document.getElementById('hub').value,
     notes: document.getElementById('notes').value.trim(),
-    episode: 'Episode 01 — Reef & Red Sands',
-    departure: '24 November 2025',
+    episode: 'Episode 02 — The Bali Edit',
+    departure: '20 September 2026',
     total: guestCount * BASE_PRICE + ' AUD',
   };
   try {
